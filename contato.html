@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Instituto Horizonte Global</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #7a9e7e;
+            --accent: #e8b054;
+            --light: #f5f5f5;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --text-light: #777777;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background-color: rgba(44, 85, 48, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero-contato {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero-contato h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-weight: 300;
+        }
+        
+        .hero-contato p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Seções Gerais */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        
+        .bg-light {
+            background-color: #f9f9f9;
+        }
+
+        /* Estilo das Sedes */
+        .sedes-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .sede-section {
+            padding: 40px;
+        }
+
+        .sede-section h3 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sede-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 25px;
+        }
+
+        .sede-item {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 25px;
+            transition: var(--transition);
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sede-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .sede-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            background: white;
+        }
+
+        .sede-item:hover::before {
+            width: 8px;
+        }
+
+        .sede-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .sede-icon {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sede-title {
+            flex: 1;
+        }
+
+        .sede-title strong {
+            color: var(--primary);
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .sede-type {
+            color: var(--secondary);
+            font-size: 14px;
+            font-weight: 600;
+            background: rgba(122, 158, 126, 0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .sede-details {
+            margin-left: 55px;
+        }
+
+        .sede-address {
+            margin-bottom: 15px;
+            color: var(--text);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .sede-address i {
+            color: var(--primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .sede-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            width: 16px;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .sede-map {
+            margin-top: 15px;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .map-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(44, 85, 48, 0.3);
+        }
+
+        .year-badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .flag-icon {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        /* Formulário de Contato */
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 85, 48, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-contato h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .hero-contato p {
+                font-size: 1.1rem;
+            }
+            
+            .sede-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .sede-section {
+                padding: 20px;
+            }
+            
+            .sede-item {
+                padding: 20px;
+            }
+            
+            .sede-contact {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .sede-details {
+                margin-left: 0;
+            }
+            
+            .contact-form-container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .sede-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .sede-icon {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe-americas logo-icon"></i>
+                <h1>Instituto Horizonte Global</h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html">Transparência</a></li>
+                    <li><a href="sedes.html" class="active">Contato</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Contato -->
+    <section class="hero-contato">
+        <div class="container">
+            <h1>Contato</h1>
+            <div class="hero-subtitle">Nossas Sedes no Brasil e no Mundo</div>
+            <p>Conectando comunidades locais a uma rede global de transformação social</p>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Tem alguma dúvida ou quer saber mais sobre nosso trabalho? Envie uma mensagem!</p>
+            
+            <div class="contact-form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assunto">Assunto *</label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione um assunto</option>
+                            <option value="voluntariado">Voluntariado</option>
+                            <option value="doacoes">Doações</option>
+                            <option value="parcerias">Parcerias</option>
+                            <option value="imprensa">Imprensa</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sedes Ativas -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Nossas Sedes Ativas</h2>
+            <div class="sedes-container">
+                <div class="sede-section">
+                    <h3><i class="fas fa-flag"></i> Brasil - Nossas Bases Nacionais</h3>
+                    <ul class="sede-list">
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Petrolina – PE</strong>
+                                    <span class="sede-type">Sede Fundadora</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>R. Dr. Nestor Cavalcante, 396 – Vila Moco, Petrolina – PE, 56304-400</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-phone"></i> (87) 3864-2010
+                                    </span>
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:petrolina@horizontoglobal.org">petrolina@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/R.+Dr.+Nestor+Cavalcante,+396+-+Vila+Moco,+Petrolina+-+PE,+56304-400,+Brasil/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Recife – PE</strong>
+                                    <span class="sede-type">Sede Institucional e Internacional</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Empresarial Center III — Rua Antônio Lumack do Monte, 128 — Apto 306, Boa Viagem, Recife - PE, CEP 51020-350</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-phone"></i> (81) 3090-2200
+                                    </span>
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:recife@horizontoglobal.org">recife@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/R.+Ant%C3%B4nio+Lumack+do+Monte,+128+-+Boa+Viagem,+Recife+-+PE,+51020-350,+Brasil/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Serra Talhada – PE</strong>
+                                    <span class="sede-type">Sede Social — Sertão</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Av. Afonso Magalhães — São Cristóvão, Serra Talhada – PE, 56903-040</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-phone"></i> (87) 3831-1440
+                                    </span>
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:serratalhada@horizontoglobal.org">serratalhada@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/Av.+Afonso+Magalh%C3%A3es,+Serra+Talhada+-+PE,+56903-040,+Brasil/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Recife – PE</strong>
+                                    <span class="sede-type">Sede Social — Capital</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>R. da União, 147 — Boa Vista, Recife – PE, 50050-010</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-phone"></i> (81) 3222-8710
+                                    </span>
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:boavista@horizontoglobal.org">boavista@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/R.+da+Uni%C3%A3o,+147+-+Boa+Vista,+Recife+-+PE,+50050-010,+Brasil/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sedes Futuras -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Expansão Global 2026-2030</h2>
+            <div class="sedes-container">
+                <div class="sede-section">
+                    <h3><i class="fas fa-globe"></i> Sedes em Desenvolvimento</h3>
+                    <ul class="sede-list">
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <span class="flag-icon">🇲🇿</span>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Maputo – Moçambique <span class="year-badge">2026</span></strong>
+                                    <span class="sede-type">Sede Africana</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Av. Julius Nyerere, 1020 – Polana Caniço A, Maputo, Moçambique</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:maputo@horizontoglobal.org">maputo@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/Av.+Julius+Nyerere,+1020,+Maputo,+Mo%C3%A7ambique/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <span class="flag-icon">🇨🇭</span>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Genebra – Suíça <span class="year-badge">2027</span></strong>
+                                    <span class="sede-type">Sede Global / ONU</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Rue de Lausanne, 121 – Quartier des Nations, Genebra, Suíça</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:geneva@horizontoglobal.org">geneva@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/Rue+de+Lausanne+121,+Gen%C3%A8ve,+Su%C3%AD%C3%A7a/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <span class="flag-icon">🇯🇴</span>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Amã – Jordânia <span class="year-badge">2028</span></strong>
+                                    <span class="sede-type">Sede Oriente Médio</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al-Abdali Boulevard, Building 15 – Amman, Jordânia</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:amman@horizontoglobal.org">amman@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/Al-Abdali+Boulevard,+Amman,+Jord%C3%A2nia/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <span class="flag-icon">🇯🇵</span>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Tóquio – Japão <span class="year-badge">2029</span></strong>
+                                    <span class="sede-type">Sede Ásia & Oceania</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>2 Chome-8-1 Nishi-Shinjuku, Shinjuku City, Tokyo 163-8001, Japão</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:tokyo@horizontoglobal.org">tokyo@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/2+Chome-8-1+Nishi-Shinjuku,+Shinjuku+City,+Tokyo+163-8001,+Jap%C3%A3o/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <span class="flag-icon">🇸🇬</span>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Singapura <span class="year-badge">2030</span></strong>
+                                    <span class="sede-type">Sub-Sede Sudeste Asiático</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>1 Fusionopolis Way, #08-10 Connexis, One-North, Singapore 138632</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:singapore@horizontoglobal.org">singapore@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/1+Fusionopolis+Way,+Connexis,+Singapore/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sede-item">
+                            <div class="sede-header">
+                                <div class="sede-icon">
+                                    <span class="flag-icon">🇺🇸</span>
+                                </div>
+                                <div class="sede-title">
+                                    <strong>Los Angeles – EUA <span class="year-badge">2030</span></strong>
+                                    <span class="sede-type">Sub-Sede Social</span>
+                                </div>
+                            </div>
+                            <div class="sede-details">
+                                <div class="sede-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>555 W 5th St, Los Angeles, CA 90013, EUA</span>
+                                </div>
+                                <div class="sede-contact">
+                                    <span class="contact-item">
+                                        <i class="fas fa-envelope"></i> 
+                                        <a href="mailto:losangeles@horizontoglobal.org">losangeles@horizontoglobal.org</a>
+                                    </span>
+                                </div>
+                                <div class="sede-map">
+                                    <a href="https://www.google.com/maps/place/555+W+5th+St,+Los+Angeles,+CA+90013,+EUA/" target="_blank" class="map-link">
+                                        <i class="fas fa-map-marked-alt"></i> Ver no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Instituto Horizonte Global</h3>
+                    <p>Transformando vidas, construindo futuros desde 2009. Atuamos no desenvolvimento social e sustentável em comunidades no Brasil e no exterior.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="projetos.html">Nossos Projetos</a></li>
+                        <li><a href="voluntariado.html">Voluntariado</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Participe</h3>
+                    <ul>
+                        <li><a href="voluntariado.html">Seja Voluntário</a></li>
+                        <li><a href="doacoes.html">Faça uma Doação</a></li>
+                        <li><a href="parcerias.html">Seja Parceiro</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Sede Institucional: Empresarial Center III — Boa Viagem, Recife - PE</li>
+                        <li><i class="fas fa-phone"></i> +55 (81) 3333-3333</li>
+                        <li><i class="fas fa-envelope"></i> contato@horizontoglobal.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Instituto Horizonte Global. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Animações de entrada
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Aplicar animações aos elementos
+        document.querySelectorAll('.sede-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Formulário de contato
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

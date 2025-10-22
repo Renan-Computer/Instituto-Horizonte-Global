@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Instituto Horizonte Global</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #7a9e7e;
+            --accent: #e8b054;
+            --light: #f5f5f5;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --text-light: #777777;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background-color: rgba(44, 85, 48, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Blog */
+        .hero-blog {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero-blog h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-blog p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Seções Gerais */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto;
+        }
+        
+        .bg-light {
+            background-color: #f9f9f9;
+        }
+        
+        /* Layout do Blog */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        /* Posts em Destaque */
+        .featured-posts {
+            margin-bottom: 50px;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .featured-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .featured-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .featured-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .featured-card:hover .featured-img img {
+            transform: scale(1.1);
+        }
+        
+        .featured-content {
+            padding: 25px;
+        }
+        
+        .featured-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .post-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .post-meta i {
+            color: var(--accent);
+        }
+        
+        /* Grid de Posts */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .post-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .post-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .post-card:hover .post-img img {
+            transform: scale(1.1);
+        }
+        
+        .post-content {
+            padding: 25px;
+        }
+        
+        .post-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .post-excerpt {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: rgba(44, 85, 48, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .widget-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        /* Busca */
+        .search-form {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 50px 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-btn:hover {
+            background: var(--secondary);
+        }
+        
+        /* Categorias */
+        .categories-list {
+            list-style: none;
+        }
+        
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: var(--transition);
+        }
+        
+        .category-item:last-child {
+            border-bottom: none;
+        }
+        
+        .category-item:hover {
+            color: var(--primary);
+        }
+        
+        .category-count {
+            background: var(--accent);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+        
+        /* Posts Populares */
+        .popular-posts {
+            list-style: none;
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: var(--transition);
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+        }
+        
+        .popular-post:hover {
+            transform: translateX(5px);
+        }
+        
+        .popular-img {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .popular-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .popular-content h4 {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .popular-date {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+        
+        /* Newsletter */
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #d19c3a;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+        
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Paginação */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .page-link:hover, .page-link.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-blog h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-blog p {
+                font-size: 1.1rem;
+            }
+            
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .post-content, .featured-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe-americas logo-icon"></i>
+                <h1>Instituto Horizonte Global</h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html">Transparência</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Blog -->
+    <section class="hero-blog">
+        <div class="container">
+            <h1>Blog Horizonte Global</h1>
+            <p>Notícias, histórias inspiradoras e insights sobre transformação social, sustentabilidade e inovação comunitária</p>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <section class="section">
+        <div class="container">
+            <div class="blog-container">
+                <!-- Conteúdo Principal -->
+                <div class="blog-main">
+                    <!-- Posts em Destaque -->
+                    <div class="featured-posts">
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Destaques</h2>
+                        <div class="featured-grid">
+                            <div class="featured-card">
+                                <div class="featured-badge">Em Destaque</div>
+                                <div class="featured-img">
+                                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Educação no Sertão">
+                                </div>
+                                <div class="featured-content">
+                                    <h3>Como a Educação Está Transformando o Sertão Pernambucano</h3>
+                                    <div class="post-meta">
+                                        <span><i class="fas fa-user"></i> Ana Monteiro</span>
+                                        <span><i class="fas fa-calendar"></i> 15 Jan 2025</span>
+                                        <span><i class="fas fa-eye"></i> 2.4K</span>
+                                    </div>
+                                    <p>Conheça a história de comunidades rurais que estão revolucionando o acesso à educação através de metodologias inovadoras.</p>
+                                    <div class="post-tags">
+                                        <a href="#" class="tag">Educação</a>
+                                        <a href="#" class="tag">Sertão</a>
+                                        <a href="#" class="tag">Inovação</a>
+                                    </div>
+                                    <a href="post.html" class="btn btn-small">Ler Mais</a>
+                                </div>
+                            </div>
+
+                            <div class="featured-card">
+                                <div class="featured-badge">Novo</div>
+                                <div class="featured-img">
+                                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tecnologia Social">
+                                </div>
+                                <div class="featured-content">
+                                    <h3>Tecnologia Social: O Futuro do Desenvolvimento Comunitário</h3>
+                                    <div class="post-meta">
+                                        <span><i class="fas fa-user"></i> Carlos Silva</span>
+                                        <span><i class="fas fa-calendar"></i> 12 Jan 2025</span>
+                                        <span><i class="fas fa-eye"></i> 1.8K</span>
+                                    </div>
+                                    <p>Descubra como soluções tecnológicas simples estão criando impacto significativo em comunidades de baixa renda.</p>
+                                    <div class="post-tags">
+                                        <a href="#" class="tag">Tecnologia</a>
+                                        <a href="#" class="tag">Inovação</a>
+                                        <a href="#" class="tag">Comunidade</a>
+                                    </div>
+                                    <a href="post.html" class="btn btn-small">Ler Mais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Todos os Posts -->
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Últimas Publicações</h2>
+                    <div class="posts-grid">
+                        <!-- Post 1 -->
+                        <div class="post-card">
+                            <div class="post-img">
+                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Agricultura Sustentável">
+                            </div>
+                            <div class="post-content">
+                                <h3>Agricultura Sustentável: Alimentando o Futuro com Respeito ao Presente</h3>
+                                <div class="post-meta">
+                                    <span><i class="fas fa-user"></i> Maria Santos</span>
+                                    <span><i class="fas fa-calendar"></i> 10 Jan 2025</span>
+                                    <span><i class="fas fa-eye"></i> 1.2K</span>
+                                </div>
+                                <p class="post-excerpt">Técnicas inovadoras de cultivo que estão revolucionando a agricultura familiar no Nordeste brasileiro.</p>
+                                <div class="post-tags">
+                                    <a href="#" class="tag">Agricultura</a>
+                                    <a href="#" class="tag">Sustentabilidade</a>
+                                    <a href="#" class="tag">Nordeste</a>
+                                </div>
+                                <a href="post.html" class="btn btn-small">Ler Mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Post 2 -->
+                        <div class="post-card">
+                            <div class="post-img">
+                                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Saúde Comunitária">
+                            </div>
+                            <div class="post-content">
+                                <h3>Saúde Comunitária: O Poder da Prevenção em Zonas Rurais</h3>
+                                <div class="post-meta">
+                                    <span><i class="fas fa-user"></i> Dr. João Mendes</span>
+                                    <span><i class="fas fa-calendar"></i> 8 Jan 2025</span>
+                                    <span><i class="fas fa-eye"></i> 956</span>
+                                </div>
+                                <p class="post-excerpt">Como programas de prevenção estão reduzindo doenças e melhorando a qualidade de vida em comunidades carentes.</p>
+                                <div class="post-tags">
+                                    <a href="#" class="tag">Saúde</a>
+                                    <a href="#" class="tag">Comunidade</a>
+                                    <a href="#" class="tag">Prevenção</a>
+                                </div>
+                                <a href="post.html" class="btn btn-small">Ler Mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Post 3 -->
+                        <div class="post-card">
+                            <div class="post-img">
+                                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Energia Solar">
+                            </div>
+                            <div class="post-content">
+                                <h3>Energia Solar: Iluminando Comunidades e Gerando Oportunidades</h3>
+                                <div class="post-meta">
+                                    <span><i class="fas fa-user"></i> Pedro Almeida</span>
+                                    <span><i class="fas fa-calendar"></i> 5 Jan 2025</span>
+                                    <span><i class="fas fa-eye"></i> 1.5K</span>
+                                </div>
+                                <p class="post-excerpt">O impacto social e econômico da instalação de sistemas de energia solar em comunidades isoladas.</p>
+                                <div class="post-tags">
+                                    <a href="#" class="tag">Energia</a>
+                                    <a href="#" class="tag">Sustentabilidade</a>
+                                    <a href="#" class="tag">Tecnologia</a>
+                                </div>
+                                <a href="post.html" class="btn btn-small">Ler Mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Post 4 -->
+                        <div class="post-card">
+                            <div class="post-img">
+                                <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cooperação Internacional">
+                            </div>
+                            <div class="post-content">
+                                <h3>Cooperação Norte-Sul: Expandindo Fronteiras da Solidariedade</h3>
+                                <div class="post-meta">
+                                    <span><i class="fas fa-user"></i> Ana Monteiro</span>
+                                    <span><i class="fas fa-calendar"></i> 3 Jan 2025</span>
+                                    <span><i class="fas fa-eye"></i> 1.1K</span>
+                                </div>
+                                <p class="post-excerpt">Como parcerias internacionais estão ampliando o alcance dos nossos projetos de desenvolvimento social.</p>
+                                <div class="post-tags">
+                                    <a href="#" class="tag">Internacional</a>
+                                    <a href="#" class="tag">Cooperação</a>
+                                    <a href="#" class="tag">Expansão</a>
+                                </div>
+                                <a href="post.html" class="btn btn-small">Ler Mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Post 5 -->
+                        <div class="post-card">
+                            <div class="post-img">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Educação Profissional">
+                            </div>
+                            <div class="post-content">
+                                <h3>Capacitação Profissional: Construindo Caminhos para o Futuro</h3>
+                                <div class="post-meta">
+                                    <span><i class="fas fa-user"></i> Carla Rodrigues</span>
+                                    <span><i class="fas fa-calendar"></i> 30 Dez 2024</span>
+                                    <span><i class="fas fa-eye"></i> 890</span>
+                                </div>
+                                <p class="post-excerpt">Programas de formação que estão preparando jovens para as demandas do mercado de trabalho moderno.</p>
+                                <div class="post-tags">
+                                    <a href="#" class="tag">Educação</a>
+                                    <a href="#" class="tag">Profissional</a>
+                                    <a href="#" class="tag">Jovens</a>
+                                </div>
+                                <a href="post.html" class="btn btn-small">Ler Mais</a>
+                            </div>
+                        </div>
+
+                        <!-- Post 6 -->
+                        <div class="post-card">
+                            <div class="post-img">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Inovação Rural">
+                            </div>
+                            <div class="post-content">
+                                <h3>Inovação no Campo: Tecnologia a Serviço do Agricultor Familiar</h3>
+                                <div class="post-meta">
+                                    <span><i class="fas fa-user"></i> Roberto Lima</span>
+                                    <span><i class="fas fa-calendar"></i> 28 Dez 2024</span>
+                                    <span><i class="fas fa-eye"></i> 1.3K</span>
+                                </div>
+                                <p class="post-excerpt">Soluções tecnológicas que estão aumentando a produtividade e sustentabilidade da agricultura familiar.</p>
+                                <div class="post-tags">
+                                    <a href="#" class="tag">Tecnologia</a>
+                                    <a href="#" class="tag">Agricultura</a>
+                                    <a href="#" class="tag">Inovação</a>
+                                </div>
+                                <a href="post.html" class="btn btn-small">Ler Mais</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paginação -->
+                    <div class="pagination">
+                        <a href="#" class="page-link active">1</a>
+                        <a href="#" class="page-link">2</a>
+                        <a href="#" class="page-link">3</a>
+                        <a href="#" class="page-link">4</a>
+                        <a href="#" class="page-link">5</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Busca -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Buscar no Blog</h3>
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="Digite sua busca...">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Categorias -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Categorias</h3>
+                        <ul class="categories-list">
+                            <li class="category-item">
+                                <a href="#">Educação</a>
+                                <span class="category-count">12</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Tecnologia</a>
+                                <span class="category-count">8</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Saúde</a>
+                                <span class="category-count">6</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Agricultura</a>
+                                <span class="category-count">5</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Sustentabilidade</a>
+                                <span class="category-count">7</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Internacional</a>
+                                <span class="category-count">4</span>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">Inovação</a>
+                                <span class="category-count">9</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Posts Populares -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Posts Populares</h3>
+                        <ul class="popular-posts">
+                            <li class="popular-post">
+                                <div class="popular-img">
+                                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Post Popular">
+                                </div>
+                                <div class="popular-content">
+                                    <h4>Como a Educação Está Transformando o Sertão</h4>
+                                    <div class="popular-date">15 Jan 2025</div>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <div class="popular-img">
+                                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Post Popular">
+                                </div>
+                                <div class="popular-content">
+                                    <h4>Tecnologia Social: O Futuro do Desenvolvimento</h4>
+                                    <div class="popular-date">12 Jan 2025</div>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <div class="popular-img">
+                                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Post Popular">
+                                </div>
+                                <div class="popular-content">
+                                    <h4>Energia Solar: Iluminando Comunidades</h4>
+                                    <div class="popular-date">5 Jan 2025</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Newsletter</h3>
+                        <p>Receba as últimas notícias e atualizações do Instituto Horizonte Global diretamente no seu e-mail.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
+                            <button type="submit" class="btn btn-full">Inscrever-se</button>
+                        </form>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Tags Populares</h3>
+                        <div class="post-tags">
+                            <a href="#" class="tag">Educação</a>
+                            <a href="#" class="tag">Tecnologia</a>
+                            <a href="#" class="tag">Sustentabilidade</a>
+                            <a href="#" class="tag">Saúde</a>
+                            <a href="#" class="tag">Agricultura</a>
+                            <a href="#" class="tag">Comunidade</a>
+                            <a href="#" class="tag">Inovação</a>
+                            <a href="#" class="tag">Internacional</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Instituto Horizonte Global</h3>
+                    <p>Transformando vidas, construindo futuros desde 2009. Atuamos no desenvolvimento social e sustentável em comunidades no Brasil e no exterior.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="projetos.html">Nossos Projetos</a></li>
+                        <li><a href="voluntariado.html">Voluntariado</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Participe</h3>
+                    <ul>
+                        <li><a href="voluntariado.html">Seja Voluntário</a></li>
+                        <li><a href="doacoes.html">Faça uma Doação</a></li>
+                        <li><a href="parcerias.html">Seja Parceiro</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Sede Institucional: Empresarial Center III — Boa Viagem, Recife - PE</li>
+                        <li><i class="fas fa-phone"></i> +55 (81) 3333-3333</li>
+                        <li><i class="fas fa-envelope"></i> contato@horizontoglobal.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Instituto Horizonte Global. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Animações de entrada
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Aplicar animações aos elementos
+        document.querySelectorAll('.post-card, .featured-card, .sidebar-widget').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Busca
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = this.querySelector('.search-input').value;
+            if (searchTerm.trim()) {
+                alert(`Buscando por: "${searchTerm}"`);
+                this.reset();
+            }
+        });
+
+        // Newsletter
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            if (email.trim()) {
+                alert(`Obrigado por se inscrever com o e-mail: ${email}`);
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>

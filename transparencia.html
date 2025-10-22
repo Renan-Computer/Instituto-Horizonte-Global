@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparência - Instituto Horizonte Global</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #7a9e7e;
+            --accent: #e8b054;
+            --light: #f5f5f5;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --text-light: #777777;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background-color: rgba(44, 85, 48, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Transparência */
+        .hero-transparencia {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero-transparencia h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-transparencia p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Seções Gerais */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto;
+        }
+        
+        .bg-light {
+            background-color: #f9f9f9;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Grid de Gráficos */
+        .graficos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .grafico-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .grafico-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .grafico-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .grafico-header h3 {
+            color: var(--primary);
+        }
+        
+        .grafico-tipo {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .grafico-container {
+            height: 300px;
+            position: relative;
+        }
+        
+        /* Cards de Dados */
+        .dados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .dado-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .dado-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .dado-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .dado-valor {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .dado-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Tabelas */
+        .tabela-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .valor-positivo {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .valor-negativo {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        /* Linha do Tempo Financeira */
+        .timeline-financeira {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+        
+        .timeline-content {
+            margin-left: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            flex: 1;
+        }
+        
+        .timeline-ano {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Investimentos Futuros */
+        .investimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .investimento-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--accent);
+        }
+        
+        .investimento-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .investimento-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .status-ativo {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .status-planejado {
+            background: #3498db;
+            color: white;
+        }
+        
+        .status-negociacao {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .investimento-valor {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #d19c3a;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .graficos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-transparencia h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-transparencia p {
+                font-size: 1.1rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .grafico-card {
+                padding: 20px;
+            }
+            
+            .grafico-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe-americas logo-icon"></i>
+                <h1>Instituto Horizonte Global</h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html" class="active">Transparência</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Transparência -->
+    <section class="hero-transparencia">
+        <div class="container">
+            <h1>Transparência e Prestação de Contas</h1>
+            <p>Acesso completo aos nossos dados financeiros, resultados e projeções futuras até 2026</p>
+        </div>
+    </section>
+
+    <!-- Gráficos Principais -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Dashboard Financeiro 2024-2026</h2>
+            
+            <div class="graficos-grid">
+                <!-- Gráfico 1: Comparativo 2024/2025 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h3>Comparativo Arrecadação 2024 vs 2025</h3>
+                        <span class="grafico-tipo">Barras</span>
+                    </div>
+                    <div class="grafico-container">
+                        <canvas id="graficoComparativo"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Gráfico 2: Previsão Orçamentária 2025 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h3>Previsão Orçamentária 2025</h3>
+                        <span class="grafico-tipo">Pizza</span>
+                    </div>
+                    <div class="grafico-container">
+                        <canvas id="graficoPrevisao2025"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Gráfico 3: Desempenho 2025 e Previsão 2026 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h3>Desempenho 2025 vs Previsão 2026</h3>
+                        <span class="grafico-tipo">Barras</span>
+                    </div>
+                    <div class="grafico-container">
+                        <canvas id="graficoDesempenho2025"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Gráfico 4: Evolução 2020-2026 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h3>Evolução da Arrecadação (2020-2026)</h3>
+                        <span class="grafico-tipo">Linha</span>
+                    </div>
+                    <div class="grafico-container">
+                        <canvas id="graficoEvolucao"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Gráfico 5: Projeção Internacional 2026 -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h3>Investimento Internacional 2026 (US$)</h3>
+                        <span class="grafico-tipo">Pizza</span>
+                    </div>
+                    <div class="grafico-container">
+                        <canvas id="graficoInternacional2026"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim dos gráficos -->
+
+            <!-- Dados Resumidos 2025 -->
+            <h3 style="text-align: center; margin: 50px 0 30px; color: var(--primary);">Previsão de Desempenho 2025</h3>
+            <div class="dados-grid">
+                <div class="dado-card">
+                    <div class="dado-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="dado-valor">R$ 12.5M</div>
+                    <div class="dado-label">Previsão Arrecadação 2025</div>
+                </div>
+                
+                <div class="dado-card">
+                    <div class="dado-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="dado-valor">+52%</div>
+                    <div class="dado-label">Crescimento vs 2024</div>
+                </div>
+                
+                <div class="dado-card">
+                    <div class="dado-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="dado-valor">25K</div>
+                    <div class="dado-label">Pessoas Impactadas (Meta)</div>
+                </div>
+                
+                <div class="dado-card">
+                    <div class="dado-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="dado-valor">3</div>
+                    <div class="dado-label">Novos Países (2025)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Balanço Comparativo 2024-2025 -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Balanço Comparativo 2024-2025</h2>
+            
+            <div class="tabela-container">
+                <h3 style="color: var(--primary); margin-bottom: 25px;">Demonstração Financeira Comparativa (em R$ mil)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Realizado 2024</th>
+                            <th>Previsão 2025</th>
+                            <th>Variação</th>
+                            <th>% Crescimento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Receitas Totais</strong></td>
+                            <td class="valor-positivo">8.200</td>
+                            <td class="valor-positivo">12.500</td>
+                            <td class="valor-positivo">+4.300</td>
+                            <td class="valor-positivo">+52%</td>
+                        </tr>
+                        <tr>
+                            <td>Doações Corporativas</td>
+                            <td>3.800</td>
+                            <td>5.500</td>
+                            <td class="valor-positivo">+1.700</td>
+                            <td class="valor-positivo">+45%</td>
+                        </tr>
+                        <tr>
+                            <td>Doações Individuais</td>
+                            <td>1.350</td>
+                            <td>2.000</td>
+                            <td class="valor-positivo">+650</td>
+                            <td class="valor-positivo">+48%</td>
+                        </tr>
+                        <tr>
+                            <td>Editais Públicos</td>
+                            <td>1.000</td>
+                            <td>2.500</td>
+                            <td class="valor-positivo">+1.500</td>
+                            <td class="valor-positivo">+150%</td>
+                        </tr>
+                        <tr>
+                            <td>Parcerias Internacionais</td>
+                            <td>2.050</td>
+                            <td>2.500</td>
+                            <td class="valor-positivo">+450</td>
+                            <td class="valor-positivo">+22%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Despesas Totais</strong></td>
+                            <td>7.150</td>
+                            <td>10.800</td>
+                            <td class="valor-positivo">+3.650</td>
+                            <td class="valor-positivo">+51%</td>
+                        </tr>
+                        <tr>
+                            <td>Projetos Sociais</td>
+                            <td>6.200</td>
+                            <td>9.200</td>
+                            <td class="valor-positivo">+3.000</td>
+                            <td class="valor-positivo">+48%</td>
+                        </tr>
+                        <tr>
+                            <td>Expansão Internacional</td>
+                            <td>0</td>
+                            <td>800</td>
+                            <td class="valor-positivo">+800</td>
+                            <td class="valor-positivo">Nova</td>
+                        </tr>
+                        <tr>
+                            <td>Administração</td>
+                            <td>650</td>
+                            <td>800</td>
+                            <td class="valor-positivo">+150</td>
+                            <td class="valor-positivo">+23%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Superávit</strong></td>
+                            <td class="valor-positivo">1.050</td>
+                            <td class="valor-positivo">1.700</td>
+                            <td class="valor-positivo">+650</td>
+                            <td class="valor-positivo">+62%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projeções 2026 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Projeções e Investimentos 2026</h2>
+            
+            <div class="timeline-financeira">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-ano">2025 - Consolidação Internacional</div>
+                        <p><strong>Orçamento Previsto:</strong> R$ 12.5 milhões</p>
+                        <p><strong>Objetivo:</strong> Estabelecimento em 3 países da África (Moçambique, Angola, Cabo Verde)</p>
+                        <p><strong>Meta de Impacto:</strong> 25.000 beneficiários diretos</p>
+                        <p><strong>Investimento Internacional:</strong> US$ 2.5 milhões</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-ano">2026 - Expansão Global</div>
+                        <p><strong>Projeção de Receita:</strong> R$ 18-20 milhões</p>
+                        <p><strong>Objetivo:</strong> Expansão para América Latina e Sudeste Asiático</p>
+                        <p><strong>Países Alvo:</strong> Colômbia, Peru, Indonésia, Vietnã</p>
+                        <p><strong>Investimento Internacional Previsto:</strong> US$ 5-7 milhões</p>
+                        <p><strong>Meta de Impacto:</strong> 50.000+ beneficiários globais</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin: 50px 0 30px; color: var(--primary);">Investimentos em Negociação para 2026+</h3>
+            
+            <div class="investimentos-grid">
+                <div class="investimento-card">
+                    <span class="investimento-status status-negociacao">2026+</span>
+                    <h4>Hub Tecnológico África</h4>
+                    <p>Centro de inovação e tecnologia em Maputo para desenvolvimento de soluções digitais para agricultura sustentável</p>
+                    <div class="investimento-valor">US$ 8.500.000</div>
+                    <p><strong>Parceiros:</strong> Banco Mundial, Google.org, Microsoft</p>
+                    <p><strong>Timeline:</strong> Q2 2026 - Q4 2027</p>
+                    <p><strong>Impacto Esperado:</strong> 250.000 agricultores</p>
+                </div>
+                
+                <div class="investimento-card">
+                    <span class="investimento-status status-negociacao">2026+</span>
+                    <h4>Sede Internacional Europa</h4>
+                    <p>Escritório estratégico em Zurique para coordenação global e captação de recursos internacionais</p>
+                    <div class="investimento-valor">US$ 5.000.000</div>
+                    <p><strong>Parceiros:</strong> UBS Foundation, Credit Suisse, Deutsche Bank</p>
+                    <p><strong>Timeline:</strong> Q1 2026 - Q3 2026</p>
+                    <p><strong>Meta Captação:</strong> € 25M/ano</p>
+                </div>
+                
+                <div class="investimento-card">
+                    <span class="investimento-status status-negociacao">2026+</span>
+                    <h4>Rede de Sede Comunitárias Ásia</h4>
+                    <p>15 centros comunitários no Sudeste Asiático focados em educação digital e empreendedorismo</p>
+                    <div class="investimento-valor">US$ 12.200.000</div>
+                    <p><strong>Parceiros:</strong> Fundação Gates, Samsung, Alibaba Foundation</p>
+                    <p><strong>Timeline:</strong> Q3 2026 - Q4 2028</p>
+                    <p><strong>Impacto Esperado:</strong> 150.000 jovens</p>
+                </div>
+
+                <div class="investimento-card">
+                    <span class="investimento-status status-negociacao">2027+</span>
+                    <h4>Instituto de Pesquisa Global</h4>
+                    <p>Centro de pesquisa em desenvolvimento sustentável com parcerias universitárias globais</p>
+                    <div class="investimento-valor">US$ 15.000.000</div>
+                    <p><strong>Parceiros:</strong> MIT, Universidade de Zurique, Universidade de Tóquio</p>
+                    <p><strong>Timeline:</strong> Q1 2027 - Q4 2028</p>
+                    <p><strong>Foco:</strong> Inovação Social & Sustentabilidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desempenho por Projeto 2025 -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Desempenho por Projeto - Previsão 2025</h2>
+            
+            <div class="tabela-container">
+                <h3 style="color: var(--primary); margin-bottom: 25px;">Metas e Projeções por Área de Atuação</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Projeto</th>
+                            <th>Investimento 2025 (R$)</th>
+                            <th>Meta de Impacto</th>
+                            <th>Expansão Geográfica</th>
+                            <th>Indicador Chave</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Educação Infantil</strong></td>
+                            <td class="valor-positivo">R$ 2.800.000</td>
+                            <td>8.000 crianças</td>
+                            <td>+15 comunidades</td>
+                            <td>95% alfabetização</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Juventude Conectada</strong></td>
+                            <td class="valor-positivo">R$ 2.200.000</td>
+                            <td>6.000 jovens</td>
+                            <td>+8 laboratórios</td>
+                            <td>80% empregabilidade</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Agricultura Sustentável</strong></td>
+                            <td class="valor-positivo">R$ 1.500.000</td>
+                            <td>2.000 famílias</td>
+                            <td>+20 comunidades</td>
+                            <td>40% aumento produtividade</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saúde Comunitária</strong></td>
+                            <td class="valor-positivo">R$ 1.800.000</td>
+                            <td>12.000 consultas</td>
+                            <td>+5 unidades móveis</td>
+                            <td>90% prevenção doenças</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expansão África</strong></td>
+                            <td class="valor-positivo">R$ 2.500.000</td>
+                            <td>3 países</td>
+                            <td>Moçambique, Angola, Cabo Verde</td>
+                            <td>10.000 beneficiários</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pesquisa & Inovação</strong></td>
+                            <td class="valor-positivo">R$ 1.000.000</td>
+                            <td>5 tecnologias</td>
+                            <td>Parcerias globais</td>
+                            <td>3 patentes/ano</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Instituto Horizonte Global</h3>
+                    <p>Transformando vidas, construindo futuros desde 2009. Atuamos no desenvolvimento social e sustentável em comunidades no Brasil e no exterior.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="projetos.html">Nossos Projetos</a></li>
+                        <li><a href="voluntariado.html">Voluntariado</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Participe</h3>
+                    <ul>
+                        <li><a href="voluntariado.html">Seja Voluntário</a></li>
+                        <li><a href="doacoes.html">Faça uma Doação</a></li>
+                        <li><a href="parcerias.html">Seja Parceiro</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Sede Institucional: Empresarial Center III — Boa Viagem, Recife - PE</li>
+                        <li><i class="fas fa-phone"></i> +55 (81) 3333-3333</li>
+                        <li><i class="fas fa-envelope"></i> contato@horizontoglobal.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Instituto Horizonte Global. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Gráfico 1: Comparativo 2024/2025
+        const ctx1 = document.getElementById('graficoComparativo').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Doações Corporativas', 'Doações Individuais', 'Editais Públicos', 'Parcerias Internacionais', 'Total'],
+                datasets: [{
+                    label: '2024',
+                    data: [3.8, 1.35, 1.0, 2.05, 8.2],
+                    backgroundColor: '#7a9e7e',
+                    borderColor: '#2c5530',
+                    borderWidth: 1
+                }, {
+                    label: '2025 (Previsão)',
+                    data: [5.5, 2.0, 2.5, 2.5, 12.5],
+                    backgroundColor: '#2c5530',
+                    borderColor: '#1e3a23',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Valor em R$ milhões'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 2: Previsão Orçamentária 2025
+        const ctx2 = document.getElementById('graficoPrevisao2025').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Educação Infantil', 'Juventude Conectada', 'Agricultura Sustentável', 'Saúde Comunitária', 'Expansão África', 'Pesquisa & Inovação', 'Administração'],
+                datasets: [{
+                    data: [22.4, 17.6, 12.0, 14.4, 20.0, 8.0, 6.4],
+                    backgroundColor: [
+                        '#2c5530', '#7a9e7e', '#e8b054', '#d19c3a', '#27ae60', '#3498db', '#9b59b6'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 3: Desempenho 2025 vs Previsão 2026
+        const ctx3 = document.getElementById('graficoDesempenho2025').getContext('2d');
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ['Receitas Totais', 'Pessoas Impactadas', 'Países de Atuação', 'Projetos Ativos', 'Parcerias Internacionais'],
+                datasets: [{
+                    label: '2025 (Previsão)',
+                    data: [12.5, 25, 8, 15, 12],
+                    backgroundColor: '#2c5530'
+                }, {
+                    label: '2026 (Projeção)',
+                    data: [18, 50, 12, 22, 18],
+                    backgroundColor: '#e8b054'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico 4: Evolução 2020-2026
+        const ctx4 = document.getElementById('graficoEvolucao').getContext('2d');
+        new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025*', '2026*'],
+                datasets: [{
+                    label: 'Arrecadação (R$ milhões)',
+                    data: [3.2, 4.8, 5.6, 6.6, 8.2, 12.5, 18],
+                    backgroundColor: 'rgba(44, 85, 48, 0.1)',
+                    borderColor: '#2c5530',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Valor em R$ milhões'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            afterLabel: function(context) {
+                                if (context.dataIndex >= 5) {
+                                    return '* Previsão';
+                                }
+                                return '';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 5: Investimento Internacional 2026
+        const ctx5 = document.getElementById('graficoInternacional2026').getContext('2d');
+        new Chart(ctx5, {
+            type: 'doughnut',
+            data: {
+                labels: ['Hub Tecnológico África', 'Sede Europa', 'Sede Comunitárias Ásia', 'Instituto Pesquisa', 'Operações Latino América'],
+                datasets: [{
+                    data: [35, 20, 42, 50, 30],
+                    backgroundColor: [
+                        '#2c5530', '#7a9e7e', '#e8b054', '#d19c3a', '#27ae60'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: US$ ${context.raw/10}M`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráficos Canvas Personalizados
+        // 1. Distribuição de Recursos
+        const canvas1 = document.getElementById('distribuicaoRecursos');
+        const ctxCanvas1 = canvas1.getContext('2d');
+        
+        // Dados para o gráfico de distribuição de recursos
+        const recursosData = [35, 25, 20, 15, 5]; // Percentuais
+        const recursosLabels = ['Projetos Sociais', 'Infraestrutura', 'Pesquisa', 'Administração', 'Reserva'];
+        const recursosColors = ['#2c5530', '#7a9e7e', '#e8b054', '#d19c3a', '#27ae60'];
+        
+        // Desenhar gráfico de pizza
+        let startAngle = 0;
+        const centerX = canvas1.width / 2;
+        const centerY = canvas1.height / 2;
+        const radius = Math.min(centerX, centerY) - 20;
+        
+        // Desenhar gráfico de pizza
+        recursosData.forEach((value, index) => {
+            const sliceAngle = (value / 100) * 2 * Math.PI;
+            
+            ctxCanvas1.beginPath();
+            ctxCanvas1.moveTo(centerX, centerY);
+            ctxCanvas1.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+            ctxCanvas1.closePath();
+            
+            ctxCanvas1.fillStyle = recursosColors[index];
+            ctxCanvas1.fill();
+            
+            // Adicionar legenda
+            const legendX = 20;
+            const legendY = 20 + index * 25;
+            ctxCanvas1.fillStyle = recursosColors[index];
+            ctxCanvas1.fillRect(legendX, legendY, 15, 15);
+            
+            ctxCanvas1.fillStyle = '#333';
+            ctxCanvas1.font = '12px Arial';
+            ctxCanvas1.fillText(`${recursosLabels[index]} (${value}%)`, legendX + 20, legendY + 12);
+            
+            startAngle += sliceAngle;
+        });
+        
+        // 2. Evolução de Voluntários
+        const canvas2 = document.getElementById('evolucaoVoluntarios');
+        const ctxCanvas2 = canvas2.getContext('2d');
+        
+        // Dados para o gráfico de evolução de voluntários
+        const voluntariosData = [120, 180, 250, 320, 450, 600, 850];
+        const voluntariosYears = ['2019', '2020', '2021', '2022', '2023', '2024', '2025*'];
+        const maxVoluntarios = Math.max(...voluntariosData);
+        
+        // Configurar área de desenho
+        const padding = 40;
+        const graphWidth = canvas2.width - padding * 2;
+        const graphHeight = canvas2.height - padding * 2;
+        
+        // Desenhar eixos
+        ctxCanvas2.strokeStyle = '#ccc';
+        ctxCanvas2.lineWidth = 1;
+        ctxCanvas2.beginPath();
+        ctxCanvas2.moveTo(padding, padding);
+        ctxCanvas2.lineTo(padding, canvas2.height - padding);
+        ctxCanvas2.lineTo(canvas2.width - padding, canvas2.height - padding);
+        ctxCanvas2.stroke();
+        
+        // Desenhar linha de dados
+        ctxCanvas2.strokeStyle = '#2c5530';
+        ctxCanvas2.lineWidth = 3;
+        ctxCanvas2.beginPath();
+        
+        voluntariosData.forEach((value, index) => {
+            const x = padding + (index / (voluntariosData.length - 1)) * graphWidth;
+            const y = canvas2.height - padding - (value / maxVoluntarios) * graphHeight;
+            
+            if (index === 0) {
+                ctxCanvas2.moveTo(x, y);
+            } else {
+                ctxCanvas2.lineTo(x, y);
+            }
+            
+            // Desenhar ponto
+            ctxCanvas2.fillStyle = '#2c5530';
+            ctxCanvas2.beginPath();
+            ctxCanvas2.arc(x, y, 5, 0, Math.PI * 2);
+            ctxCanvas2.fill();
+            
+            // Adicionar rótulo do ano
+            ctxCanvas2.fillStyle = '#666';
+            ctxCanvas2.font = '10px Arial';
+            ctxCanvas2.textAlign = 'center';
+            ctxCanvas2.fillText(voluntariosYears[index], x, canvas2.height - padding + 15);
+            
+            // Adicionar valor
+            ctxCanvas2.fillStyle = '#2c5530';
+            ctxCanvas2.fillText(value, x, y - 10);
+        });
+        
+        ctxCanvas2.stroke();
+        
+        // Título do gráfico
+        ctxCanvas2.fillStyle = '#333';
+        ctxCanvas2.font = '14px Arial';
+        ctxCanvas2.textAlign = 'center';
+        ctxCanvas2.fillText('Evolução do Número de Voluntários', canvas2.width / 2, 20);
+        
+        // 3. Impacto por Região
+        const canvas3 = document.getElementById('impactoRegiao');
+        const ctxCanvas3 = canvas3.getContext('2d');
+        
+        // Dados para o gráfico de impacto por região
+        const regioesData = [35, 25, 20, 15, 5]; // Percentuais
+        const regioesLabels = ['Nordeste', 'Sudeste', 'Norte', 'Sul', 'Centro-Oeste'];
+        const regioesColors = ['#2c5530', '#7a9e7e', '#e8b054', '#d19c3a', '#27ae60'];
+        
+        // Configurações do gráfico de barras
+        const barWidth = 30;
+        const barSpacing = 20;
+        const maxBarHeight = canvas3.height - 80;
+        const startX = 60;
+        
+        // Desenhar barras
+        regioesData.forEach((value, index) => {
+            const barHeight = (value / 100) * maxBarHeight;
+            const x = startX + index * (barWidth + barSpacing);
+            const y = canvas3.height - 40 - barHeight;
+            
+            // Desenhar barra
+            ctxCanvas3.fillStyle = regioesColors[index];
+            ctxCanvas3.fillRect(x, y, barWidth, barHeight);
+            
+            // Adicionar valor
+            ctxCanvas3.fillStyle = '#333';
+            ctxCanvas3.font = '12px Arial';
+            ctxCanvas3.textAlign = 'center';
+            ctxCanvas3.fillText(`${value}%`, x + barWidth / 2, y - 10);
+            
+            // Adicionar rótulo
+            ctxCanvas3.fillText(regioesLabels[index], x + barWidth / 2, canvas3.height - 20);
+        });
+        
+        // Título do gráfico
+        ctxCanvas3.fillStyle = '#333';
+        ctxCanvas3.font = '14px Arial';
+        ctxCanvas3.textAlign = 'center';
+        ctxCanvas3.fillText('Impacto por Região do Brasil', canvas3.width / 2, 20);
+
+        // Animações de entrada
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Aplicar animações aos elementos
+        document.querySelectorAll('.grafico-card, .dado-card, .tabela-container, .timeline-content, .investimento-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

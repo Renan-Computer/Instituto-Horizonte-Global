@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Horizonte Global - Transformando Vidas, Construindo Futuros</title>
+    <meta name="description" content="Instituto Horizonte Global - 16 anos transformando vidas através de desenvolvimento social sustentável. Educação, tecnologia e empreendedorismo no sertão pernambucano e além.">
+    <meta name="keywords" content="ONG, desenvolvimento social, educação, sertão pernambucano, voluntariado, doações, impacto social">
+    <meta name="author" content="Instituto Horizonte Global">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://horizontoglobal.org/">
+    <meta property="og:title" content="Instituto Horizonte Global - Transformando Vidas, Construindo Futuros">
+    <meta property="og:description" content="16 anos transformando vidas através de desenvolvimento social sustentável. Do sertão pernambucano para o mundo.">
+    <meta property="og:image" content="https://horizontoglobal.org/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://horizontoglobal.org/">
+    <meta property="twitter:title" content="Instituto Horizonte Global - Transformando Vidas, Construindo Futuros">
+    <meta property="twitter:description" content="16 anos transformando vidas através de desenvolvimento social sustentável. Do sertão pernambucano para o mundo.">
+    <meta property="twitter:image" content="https://horizontoglobal.org/assets/images/twitter-image.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #7a9e7e;
+            --accent: #e8b054;
+            --light: #f5f5f5;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --text-light: #777777;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Acessibilidade */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 10000;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background-color: rgba(44, 85, 48, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--primary);
+        }
+        
+        /* Hero Principal */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Seções Gerais */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 20px auto;
+        }
+        
+        .bg-light {
+            background-color: #f9f9f9;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .max-width-lg {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+        
+        /* Números de Impacto */
+        .impacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .impacto-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .impacto-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+        
+        .impacto-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .impacto-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .impacto-descricao {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        /* Carrossel de Projetos */
+        .projetos-carousel {
+            margin: 50px 0;
+            position: relative;
+        }
+        
+        .projeto-slide {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+        
+        .projeto-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .projeto-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .projeto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .projeto-slide:hover .projeto-img img {
+            transform: scale(1.1);
+        }
+        
+        .projeto-content {
+            padding: 30px;
+        }
+        
+        .projeto-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .projeto-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .projeto-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .projeto-meta i {
+            color: var(--accent);
+        }
+        
+        /* Controles do Carrossel */
+        .slick-prev, .slick-next {
+            width: 50px;
+            height: 50px;
+            z-index: 10;
+        }
+        
+        .slick-prev {
+            left: -60px;
+        }
+        
+        .slick-next {
+            right: -60px;
+        }
+        
+        .slick-prev:before, .slick-next:before {
+            font-size: 40px;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+        
+        .slick-dots li button:before {
+            font-size: 12px;
+            color: var(--primary);
+        }
+        
+        .slick-dots li.slick-active button:before {
+            color: var(--accent);
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #d19c3a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-large {
+            padding: 18px 45px;
+            font-size: 1.2rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Depoimentos */
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .depoimento-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .depoimento-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .depoimento-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .depoimento-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .depoimento-local {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .audio-player {
+            margin: 15px 0;
+        }
+        
+        .audio-player audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        /* Estilização personalizada para o player de áudio */
+        audio {
+            filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+            width: 100%;
+            height: 40px;
+            border-radius: 8px;
+        }
+        
+        audio::-webkit-media-controls-panel {
+            background-color: #f1f3f4;
+        }
+        
+        audio::-webkit-media-controls-play-button {
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .depoimento-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        /* Player de Vídeo Personalizado */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 20px;
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-poster {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-poster::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            background: #d19c3a;
+        }
+        
+        .video-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 3;
+        }
+        
+        .depoimento-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        /* Playlist de Áudios */
+        .audio-playlist {
+            margin: 50px 0;
+        }
+        
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .playlist-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .playlist-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+        
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .playlist-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .playlist-header-text h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+        
+        .playlist-header-text span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .playlist-content {
+            margin-bottom: 20px;
+        }
+        
+        .playlist-content p {
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .playlist-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        .playlist-duration {
+            font-weight: 500;
+        }
+        
+        .playlist-project {
+            background: rgba(44, 85, 48, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: none;
+            font-size: 1.5rem;
+        }
+        
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            background: var(--secondary);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chatbot-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 12px 15px;
+            border-radius: 18px;
+            line-height: 1.4;
+            font-size: 0.9rem;
+        }
+        
+        .bot-message {
+            background: #f0f0f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .chatbot-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+        }
+        
+        .chatbot-input button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .chatbot-input button:hover {
+            background: #d19c3a;
+        }
+        
+        .quick-actions {
+            padding: 0 15px 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .quick-btn {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .quick-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .slick-prev {
+                left: -30px;
+            }
+            
+            .slick-next {
+                right: -30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .slick-prev, .slick-next {
+                display: none !important;
+            }
+            
+            .depoimentos-grid, .playlist-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chatbot-window {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .play-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 100px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .impacto-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chatbot-window {
+                width: calc(100vw - 40px);
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe-americas logo-icon" aria-hidden="true"></i>
+                <h1>Instituto Horizonte Global</h1>
+            </div>
+            <button class="mobile-menu" aria-expanded="false" aria-controls="main-nav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            <nav id="main-nav" role="navigation" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html" class="active" aria-current="page">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html">Transparência</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Principal -->
+    <section class="hero" role="banner" aria-labelledby="hero-heading">
+        <div class="container">
+            <h1 id="hero-heading">Transformando Vidas, Construindo Futuros</h1>
+            <p>Do Sertão Pernambucano para o Mundo - 16 anos de impacto social sustentável</p>
+            <div class="btn-group">
+                <a href="projetos.html" class="btn btn-large">Conhecer Projetos</a>
+                <a href="doacoes.html" class="btn btn-large btn-outline">Fazer uma Doação</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Nossa História Resumida -->
+        <section class="section" aria-labelledby="nossa-historia">
+            <div class="container">
+                <h2 id="nossa-historia" class="section-title">Nossa Jornada</h2>
+                <div class="text-center max-width-lg">
+                    <p class="intro-text">
+                        Fundado em 2009 no coração do Sertão pernambucano, o Instituto Horizonte Global nasceu da visão da família Monteiro de Carvalho 
+                        de transformar prosperidade em impacto social duradouro. Do nosso berço em Petrolina (PE), expandimos para todo o Brasil e 
+                        agora rumamos para uma presença global, sempre guiados pela missão de promover desenvolvimento social sustentável através da 
+                        educação, tecnologia e empreendedorismo.
+                    </p>
+                    <a href="sobre.html" class="btn">Conheça Nossa História Completa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impacto em Números -->
+        <section class="section bg-light" aria-labelledby="impacto-numeros">
+            <div class="container">
+                <h2 id="impacto-numeros" class="section-title">Nosso Impacto em Números</h2>
+                <div class="impacto-grid">
+                    <div class="impacto-card">
+                        <div class="impacto-icon" aria-hidden="true">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="impacto-numero" data-count="45320">0</div>
+                        <div class="impacto-descricao">Pessoas Impactadas</div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon" aria-hidden="true">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="impacto-numero" data-count="80">0</div>
+                        <div class="impacto-descricao">Comunidades Atendidas</div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon" aria-hidden="true">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="impacto-numero" data-count="2847">0</div>
+                        <div class="impacto-descricao">Voluntários Ativos</div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon" aria-hidden="true">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="impacto-numero" data-count="15200">0</div>
+                        <div class="impacto-descricao">Crianças Educadas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos em Destaque com Carrossel -->
+        <section class="section" aria-labelledby="projetos-destaque">
+            <div class="container">
+                <h2 id="projetos-destaque" class="section-title">Projetos em Destaque</h2>
+                <div class="projetos-carousel">
+                    <div class="projeto-slide">
+                        <div class="projeto-img">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Crianças em sala de aula do projeto Educação Infantil">
+                        </div>
+                        <div class="projeto-content">
+                            <h3>Educação Infantil</h3>
+                            <div class="projeto-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Sertão Pernambucano</span>
+                                <span><i class="fas fa-users"></i> 2.500+ crianças</span>
+                            </div>
+                            <p>Programas de alfabetização e desenvolvimento infantil em comunidades rurais do Nordeste brasileiro.</p>
+                            <a href="projetos.html" class="btn" style="margin-top: 20px;">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="projeto-slide">
+                        <div class="projeto-img">
+                            <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Jovens em aula de informática do projeto Juventude Conectada">
+                        </div>
+                        <div class="projeto-content">
+                            <h3>Juventude Conectada</h3>
+                            <div class="projeto-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Todo Nordeste</span>
+                                <span><i class="fas fa-users"></i> 3.200+ jovens</span>
+                            </div>
+                            <p>Capacitação tecnológica para jovens e adultos preparando para as oportunidades da economia digital.</p>
+                            <a href="projetos.html" class="btn" style="margin-top: 20px;">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="projeto-slide">
+                        <div class="projeto-img">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Painéis solares instalados em comunidade rural">
+                        </div>
+                        <div class="projeto-content">
+                            <h3>Energia Solar Comunitária</h3>
+                            <div class="projeto-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Semiárido</span>
+                                <span><i class="fas fa-users"></i> 1.500+ famílias</span>
+                            </div>
+                            <p>Instalação de sistemas de energia solar em comunidades rurais, proporcionando acesso à energia limpa.</p>
+                            <a href="projetos.html" class="btn" style="margin-top: 20px;">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                    <div class="projeto-slide">
+                        <div class="projeto-img">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Agricultores em plantação sustentável">
+                        </div>
+                        <div class="projeto-content">
+                            <h3>Agricultura Sustentável</h3>
+                            <div class="projeto-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Vale do São Francisco</span>
+                                <span><i class="fas fa-users"></i> 800+ agricultores</span>
+                            </div>
+                            <p>Técnicas de cultivo sustentável e acesso a mercados para pequenos produtores rurais.</p>
+                            <a href="projetos.html" class="btn" style="margin-top: 20px;">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="projetos.html" class="btn btn-outline">Ver Todos os Projetos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expansão Global -->
+        <section class="section bg-primary" aria-labelledby="expansao-global">
+            <div class="container">
+                <h2 id="expansao-global" class="section-title" style="color: white;">Rumo à Globalização 2025-2030</h2>
+                <div class="text-center max-width-lg">
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px; opacity: 0.9;">
+                        Estamos expandindo nossas fronteiras! Nos próximos anos, levaremos nossa expertise em desenvolvimento social 
+                        sustentável para novos continentes, começando pela África em 2025 e seguindo para Ásia e Europa até 2030.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 50px 0;">
+                        <div class="text-center">
+                            <div style="font-size: 3rem; margin-bottom: 10px;">🇲🇿</div>
+                            <h3 style="color: var(--accent); margin-bottom: 10px;">2025</h3>
+                            <p>Moçambique, Angola, Cabo Verde</p>
+                        </div>
+                        <div class="text-center">
+                            <div style="font-size: 3rem; margin-bottom: 10px;">🇯🇴</div>
+                            <h3 style="color: var(--accent); margin-bottom: 10px;">2027</h3>
+                            <p>Jordânia e Oriente Médio</p>
+                        </div>
+                        <div class="text-center">
+                            <div style="font-size: 3rem; margin-bottom: 10px;">🇨🇭</div>
+                            <h3 style="color: var(--accent); margin-bottom: 10px;">2028</h3>
+                            <p>Suíça - Sede Global</p>
+                        </div>
+                        <div class="text-center">
+                            <div style="font-size: 3rem; margin-bottom: 10px;">🇯🇵</div>
+                            <h3 style="color: var(--accent); margin-bottom: 10px;">2029</h3>
+                            <p>Japão e Sudeste Asiático</p>
+                        </div>
+                    </div>
+                    <a href="sobre.html#expansao" class="btn">Conhecer Plano de Expansão</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Ajudar -->
+        <section class="section" aria-labelledby="como-ajudar">
+            <div class="container">
+                <h2 id="como-ajudar" class="section-title">Como Você Pode Ajudar</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div class="projeto-slide" style="text-align: center;">
+                        <div class="impacto-icon" style="margin: 30px auto 20px;">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="projeto-content">
+                            <h3>Faça uma Doação</h3>
+                            <p style="margin-bottom: 25px;">Sua contribuição financeira transforma vidas e constrói futuros. Cada real faz a diferença.</p>
+                            <a href="doacoes.html" class="btn">Doar Agora</a>
+                        </div>
+                    </div>
+
+                    <div class="projeto-slide" style="text-align: center;">
+                        <div class="impacto-icon" style="margin: 30px auto 20px;">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="projeto-content">
+                            <h3>Seja Voluntário</h3>
+                            <p style="margin-bottom: 25px;">Doe seu tempo e talento para causas que transformam realidades.</p>
+                            <a href="voluntariado.html" class="btn">Quero Ser Voluntário</a>
+                        </div>
+                    </div>
+
+                    <div class="projeto-slide" style="text-align: center;">
+                        <div class="impacto-icon" style="margin: 30px auto 20px;">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="projeto-content">
+                            <h3>Seja Parceiro</h3>
+                            <p style="margin-bottom: 25px;">Empresas e organizações: junte-se a nós na construção de um mundo melhor.</p>
+                            <a href="contato.html" class="btn">Tornar-me Parceiro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="section bg-light" aria-labelledby="depoimentos">
+            <div class="container">
+                <h2 id="depoimentos" class="section-title">Depoimentos de Quem Faz Parte Desta Jornada</h2>
+                <p class="text-center" style="margin-bottom: 50px; color: var(--text-light);">
+                    Histórias reais de transformação e impacto
+                </p>
+
+                <!-- Grid de Depoimentos -->
+                <div class="depoimentos-grid">
+                    <!-- Áudio 1 -->
+                    <div class="depoimento-card audio-card">
+                        <div class="depoimento-header">
+                            <div class="depoimento-icon">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div>
+                                <h3>Dona Maria, Agricultora</h3>
+                                <span class="depoimento-local">Petrolina - PE</span>
+                            </div>
+                        </div>
+                        <div class="audio-player">
+                            <audio controls>
+                                <source src="assets/audio/DEPOIMENTO-DONA-MARIA.mp3" type="audio/mpeg">
+                                Seu navegador não suporta o elemento de áudio.
+                            </audio>
+                        </div>
+                        <div class="depoimento-content">
+                            <p>"A iniciativa de energia solar do Instituto Horizonte Global transformou a vida na comunidade de Vereda Seca, no sertão. Para Dona Maria, a eletricidade estável significou a capacidade de conservar seus medicamentos adequadamente, melhorando sua saúde. Para seus netos, a luz após o anoitecer abriu as portas do conhecimento, permitindo estudos noturnos e a esperança de um futuro melhor. O projeto, que vai além da instalação de painéis solares, empoderou a comunidade com treinamento, melhor abastecimento de água e novas oportunidades econômicas, convertendo o sol, outrora um desafio, na própria fonte de dignidade e progresso para o sertão."</p>
+                            <div class="depoimento-info">
+                                <span class="depoimento-tempo">4:32</span>
+                                <span class="depoimento-projeto">Projeto Energia Solar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vídeo 1 - Com Player Personalizado -->
+                    <div class="depoimento-card video-card">
+                        <div class="video-container" id="video-container-1">
+                            <div class="video-wrapper">
+                                <!-- O vídeo será inserido via JavaScript quando o usuário clicar em play -->
+                            </div>
+                            <div class="video-poster" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+                                <button class="play-button" aria-label="Reproduzir vídeo institucional">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="depoimento-content">
+                            <h3>Video Institucional</h3>
+                            <p>Conheça a história do Instituto Horizonte Global</p>
+                            <div class="depoimento-meta">
+                                <span><i class="fas fa-calendar"></i> Publicado: Jan 2025</span>
+                                <span><i class="fas fa-eye"></i> 25K visualizações</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playlist de Áudios -->
+                <div class="audio-playlist">
+                    <h3 class="text-center" style="margin: 50px 0 30px; color: var(--primary);">Mais Depoimentos em Áudio</h3>
+                    <div class="playlist-grid">
+                        <!-- Áudio 1 -->
+                        <div class="playlist-item">
+                            <div class="playlist-header">
+                                <div class="playlist-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <div class="playlist-header-text">
+                                    <h3>Depoimento da Comunidade</h3>
+                                    <span>Agricultores do Vale do São Francisco</span>
+                                </div>
+                            </div>
+                            <div class="audio-player">
+                                <audio controls>
+                                    <source src="assets/audio/DEPOIMENTO-JOSE-RICARDO.mp3" type="audio/mpeg">
+                                    Seu navegador não suporta o elemento de áudio.
+                                </audio>
+                            </div>
+                            <div class="playlist-content">
+                                <p>"O projeto de agricultura sustentável transformou nossa relação com a terra. Antes lutávamos contra a seca, hoje trabalhamos com ela. Aprendemos técnicas que nos permitem produzir mesmo nos períodos mais difíceis, garantindo alimento para nossas famílias e renda extra com a venda do excedente."</p>
+                            </div>
+                            <div class="playlist-info">
+                                <span class="playlist-duration">0:39</span>
+                                <span class="playlist-project">Projeto Agricultura Sustentável</span>
+                            </div>
+                        </div>
+
+                        <!-- Áudio 2 -->
+                        <div class="playlist-item">
+                            <div class="playlist-header">
+                                <div class="playlist-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <div class="playlist-header-text">
+                                    <h3>Voluntários Internacionais</h3>
+                                    <span>Time global de colaboradores</span>
+                                </div>
+                            </div>
+                            <div class="audio-player">
+                                <audio controls>
+                                    <source src="assets/audio/DEPOIMENTO-VOLUNTARIA.mp3" type="audio/mpeg">
+                                    Seu navegador não suporta o elemento de áudio.
+                                </audio>
+                            </div>
+                            <div class="playlist-content">
+                                <p>"Como voluntária internacional, pude testemunhar a dedicação incrível da equipe local. O trabalho vai muito além da assistência - é sobre empoderamento real. Cada projeto é construído com a comunidade, respeitando saberes tradicionais e integrando novas tecnologias de forma harmoniosa."</p>
+                            </div>
+                            <div class="playlist-info">
+                                <span class="playlist-duration">0:40</span>
+                                <span class="playlist-project">Programa de Voluntariado</span>
+                            </div>
+                        </div>
+
+                        <!-- Áudio 3 -->
+                        <div class="playlist-item">
+                            <div class="playlist-header">
+                                <div class="playlist-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <div class="playlist-header-text">
+                                    <h3>Parceiros Corporativos</h3>
+                                    <span>Empresas apoiadoras</span>
+                                </div>
+                            </div>
+                            <div class="audio-player">
+                                <audio controls>
+                                    <source src="assets/audio/DEPOIMENTO-DIRETORIA-SUSTENTABILIDADE.mp3" type="audio/mpeg">
+                                    Seu navegador não suporta o elemento de áudio.
+                                </audio>
+                            </div>
+                            <div class="playlist-content">
+                                <p>"Nossa parceria com o Instituto Horizonte Global nos permitiu alinhar ESG com impacto real. Os relatórios de transparência são detalhados e mostram exatamente como cada recurso é aplicado. Ver as comunidades se desenvolverem com dignidade é a melhor métrica de sucesso que poderíamos ter."</p>
+                            </div>
+                            <div class="playlist-info">
+                                <span class="playlist-duration">0:36</span>
+                                <span class="playlist-project">Parcerias Corporativas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta" aria-labelledby="cta-final">
+            <div class="container">
+                <h2 id="cta-final">Junte-se à Nossa Missão</h2>
+                <p>Faça parte dessa jornada de transformação social que já impactou milhares de vidas e está expandindo para o mundo.</p>
+                <div class="btn-group">
+                    <a href="doacoes.html" class="btn btn-large">Fazer uma Doação</a>
+                    <a href="voluntariado.html" class="btn btn-large btn-outline">Trabalhar Conosco</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Instituto Horizonte Global</h3>
+                    <p>Transformando vidas, construindo futuros desde 2009. Atuamos no desenvolvimento social e sustentável em comunidades no Brasil e no exterior.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="projetos.html">Nossos Projetos</a></li>
+                        <li><a href="voluntariado.html">Voluntariado</a></li>
+                        <li><a href="transparencia.html">Transparência</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Participe</h3>
+                    <ul>
+                        <li><a href="voluntariado.html">Seja Voluntário</a></li>
+                        <li><a href="doacoes.html">Faça uma Doação</a></li>
+                        <li><a href="parcerias.html">Seja Parceiro</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Sede Institucional: Empresarial Center III — Boa Viagem, Recife - PE</li>
+                        <li><i class="fas fa-phone"></i> +55 (81) 3333-3333</li>
+                        <li><i class="fas fa-envelope"></i> contato@horizontoglobal.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Instituto Horizonte Global. Todos os direitos reservados. CNPJ: 12.345.678/0001-90</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Assistente Virtual</h3>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    Olá! Sou o assistente do Instituto Horizonte Global. Como posso ajudar você hoje?
+                </div>
+            </div>
+            <div class="quick-actions">
+                <button class="quick-btn" data-question="Quais projetos vocês desenvolvem?">📋 Projetos</button>
+                <button class="quick-btn" data-question="Como ser voluntário?">💚 Voluntariado</button>
+                <button class="quick-btn" data-question="Como fazer doação?">💰 Doações</button>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
+                <button id="chatbot-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chatbot-toggle" id="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            nav.classList.toggle('show');
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Inicializar carrossel
+        $(document).ready(function(){
+            $('.projetos-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+
+        // Contadores animados
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target.toLocaleString() + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString() + '+';
+                }
+            }, 16);
+        }
+
+        // Observador para iniciar animações quando elementos estiverem visíveis
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.impacto-numero');
+                    counters.forEach((counter, index) => {
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        setTimeout(() => {
+                            animateCounter(counter, target, 2000);
+                        }, index * 300);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.impacto-grid'));
+
+        // Animações de entrada suaves
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.projeto-slide, .impacto-card, .depoimento-card, .playlist-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeObserver.observe(el);
+        });
+
+        // Controle de áudios - pausar outros quando um começar
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioPlayers = document.querySelectorAll('audio');
+            
+            audioPlayers.forEach(audio => {
+                audio.addEventListener('play', function() {
+                    audioPlayers.forEach(otherAudio => {
+                        if (otherAudio !== audio && !otherAudio.paused) {
+                            otherAudio.pause();
+                        }
+                    });
+                });
+            });
+        });
+
+        // Sistema de vídeo com carregamento sob demanda
+                document.addEventListener('DOMContentLoaded', function() {
+                    const videoContainers = document.querySelectorAll('.video-container');
+                    
+                    videoContainers.forEach(container => {
+                        const poster = container.querySelector('.video-poster');
+                        const playButton = container.querySelector('.play-button');
+                        const videoWrapper = container.querySelector('.video-wrapper');
+                        
+                        playButton.addEventListener('click', function() {
+                            // Remover poster e botão de play
+                            poster.style.display = 'none';
+                            
+                            // Criar elemento de carregamento
+                            const loadingDiv = document.createElement('div');
+                            loadingDiv.className = 'video-loading';
+                            loadingDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Carregando vídeo...';
+                            container.appendChild(loadingDiv);
+                            
+                            // Criar elemento de vídeo para reprodução do arquivo local em "assets/video"
+                            const video = document.createElement('video');
+                            video.src = "assets/video/INSTITUCIONAL-HORIZONTE-GLOBAL.mp4";
+                            video.controls = true;
+                            video.autoplay = true;
+                            video.width = "100%";
+                            video.style.height = "100%";
+                            video.style.objectFit = "cover";
+                            
+                            // Adicionar vídeo ao container
+                            videoWrapper.appendChild(video);
+                            
+                            // Remover loading quando o vídeo estiver pronto para reproduzir
+                            video.addEventListener('loadeddata', function() {
+                                loadingDiv.remove();
+                            });
+                            
+                            // Em caso de erro, remover loading e exibir mensagem
+                            video.addEventListener('error', function() {
+                                loadingDiv.remove();
+                                const errMsg = document.createElement('div');
+                                errMsg.className = 'video-loading';
+                                errMsg.textContent = 'Não foi possível carregar o vídeo.';
+                                videoWrapper.appendChild(errMsg);
+                            });
+                        });
+                    });
+                });
+
+        // Chatbot
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+            const chatbotWindow = document.getElementById('chatbot-window');
+            const chatbotClose = document.getElementById('chatbot-close');
+            const chatbotSend = document.getElementById('chatbot-send');
+            const chatbotInput = document.getElementById('chatbot-input');
+            const chatbotMessages = document.getElementById('chatbot-messages');
+            const quickButtons = document.querySelectorAll('.quick-btn');
+            
+            // Respostas do chatbot
+            const responses = {
+                "projetos": "Desenvolvemos vários projetos focados em educação, tecnologia, energia sustentável e agricultura. Nossos principais projetos são: Educação Infantil, Juventude Conectada, Energia Solar Comunitária e Agricultura Sustentável. Você pode conhecer mais em nossa página de projetos.",
+                "voluntariado": "Temos oportunidades de voluntariado em diversas áreas: educação, tecnologia, saúde, administração e muito mais. Você pode se cadastrar como voluntário através do nosso site na página de voluntariado. Também aceitamos voluntários internacionais!",
+                "doações": "Aceitamos doações de qualquer valor através de PIX, cartão de crédito, boleto ou transferência bancária. Todas as doações são utilizadas diretamente em nossos projetos e temos total transparência na aplicação dos recursos. Visite nossa página de doações para mais informações.",
+                "expansão": "Estamos expandindo nossa atuação! Em 2025 começaremos na África (Moçambique, Angola, Cabo Verde), em 2027 no Oriente Médio (Jordânia), em 2028 na Suíça (sede global) e em 2029 no Japão e Sudeste Asiático.",
+                "contato": "Você pode entrar em contato conosco pelo telefone (81) 3333-3333, email contato@horizontoglobal.org ou visitar nossa sede no Empresarial Center III em Boa Viagem, Recife-PE.",
+                "default": "Desculpe, não entendi sua pergunta. Posso ajudar com informações sobre nossos projetos, como ser voluntário, fazer doações, nossa expansão global ou formas de contato. O que você gostaria de saber?"
+            };
+            
+            // Alternar visibilidade do chatbot
+            chatbotToggle.addEventListener('click', function() {
+                chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            chatbotClose.addEventListener('click', function() {
+                chatbotWindow.style.display = 'none';
+            });
+            
+            // Enviar mensagem
+            function sendMessage() {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    addMessage(message, 'user');
+                    chatbotInput.value = '';
+                    
+                    // Simular resposta após um breve delay
+                    setTimeout(() => {
+                        let response = responses.default;
+                        
+                        if (message.toLowerCase().includes('projeto')) {
+                            response = responses.projetos;
+                        } else if (message.toLowerCase().includes('voluntari')) {
+                            response = responses.voluntariado;
+                        } else if (message.toLowerCase().includes('doa')) {
+                            response = responses.doacoes;
+                        } else if (message.toLowerCase().includes('expans') || message.toLowerCase().includes('global')) {
+                            response = responses.expansão;
+                        } else if (message.toLowerCase().includes('contato') || message.toLowerCase().includes('falar') || message.toLowerCase().includes('telefone')) {
+                            response = responses.contato;
+                        }
+                        
+                        addMessage(response, 'bot');
+                    }, 1000);
+                }
+            }
+            
+            chatbotSend.addEventListener('click', sendMessage);
+            
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Botões de ação rápida
+            quickButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const question = this.getAttribute('data-question');
+                    chatbotInput.value = question;
+                    sendMessage();
+                });
+            });
+            
+            // Adicionar mensagem ao chat
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

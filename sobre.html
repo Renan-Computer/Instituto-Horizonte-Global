@@ -1,0 +1,2826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Instituto Horizonte Global</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #7a9e7e;
+            --accent: #e8b054;
+            --light: #f5f5f5;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --text-light: #777777;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background-color: rgba(44, 85, 48, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Sobre */
+        .hero-sobre {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero-sobre h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-sobre p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Seções Gerais */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto;
+        }
+        
+        .bg-light {
+            background-color: #f9f9f9;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Nossa História */
+        .historia-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .historia-text {
+            font-size: 1.1rem;
+        }
+        
+        .historia-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .historia-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Expansão Global */
+        .expansao-global {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 60px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .expansao-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .expansao-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .expansao-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .fases-expansao {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .fase-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .fase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .fase-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: var(--accent);
+        }
+        
+        .fase-title h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .fase-periodo {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .fase-content h4 {
+            margin: 20px 0 10px;
+            color: var(--accent);
+        }
+        
+        .fase-lista {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .fase-lista li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .fase-lista li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .meta-destaque {
+            background: rgba(232, 176, 84, 0.2);
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .sedes-internacionais {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .sede-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .sede-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .sede-flag {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .sede-card h4 {
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+        
+        .sede-ano {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .perspectiva-global {
+            background: white;
+            color: var(--text);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .perspectiva-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .perspectiva-header h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .metas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .meta-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: var(--light);
+        }
+        
+        .meta-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .meta-descricao {
+            font-size: 0.9rem;
+        }
+        
+        .conclusao-estrategica {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(232, 176, 84, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Perspectiva Global Expandida */
+        .perspectiva-expandida {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 60px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .impacto-global-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .impacto-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .impacto-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .impacto-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .impacto-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .impacto-descricao {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .parcerias-globais {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .parceria-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Missão, Visão, Valores */
+        .mvv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mvv-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .mvv-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mvv-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .mvv-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Linha do Tempo */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--secondary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(odd):after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even):after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Equipe */
+        .equipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .membro-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .membro-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .membro-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .membro-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .membro-card:hover .membro-img img {
+            transform: scale(1.1);
+        }
+        
+        .membro-info {
+            padding: 20px;
+        }
+        
+        .membro-info h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .membro-cargo {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Estilos para a Equipe Melhorada */
+        .equipe-lideranca {
+            margin-bottom: 60px;
+        }
+
+        .lideranca-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lider-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .lider-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .lider-img {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lider-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .lider-card:hover .lider-img img {
+            transform: scale(1.1);
+        }
+
+        .lider-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .lider-content {
+            padding: 30px;
+        }
+
+        .lider-content h4 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .lider-cargo {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .lider-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+        }
+
+        .lider-stats .stat {
+            text-align: center;
+        }
+
+        .lider-stats .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .lider-stats .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .lider-desc {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .lider-contato {
+            display: flex;
+            gap: 10px;
+        }
+
+        .contato-link {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contato-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Diretores */
+        .diretores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .diretor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent);
+        }
+
+        .diretor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .diretor-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .diretor-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+        }
+
+        .diretor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .diretor-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .diretor-cargo {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .diretor-content p {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .diretor-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .expertise-tag {
+            background: rgba(44, 85, 48, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Estatísticas da Equipe */
+        .equipe-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .equipe-stat-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .equipe-stat-card:hover {
+            transform: translateY(-5px);
+            background: var(--primary);
+            color: white;
+        }
+
+        .equipe-stat-card:hover .stat-icon {
+            color: var(--accent);
+        }
+
+        .equipe-stat-card:hover .stat-number,
+        .equipe-stat-card:hover .stat-label {
+            color: white;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .equipe-stat-card .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .equipe-stat-card .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        /* Reconhecimentos Expandidos */
+        .reconhecimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .reconhecimento-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reconhecimento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
+        .reconhecimento-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .reconhecimento-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .reconhecimento-year {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .reconhecimento-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .reconhecimento-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .reconhecimento-org {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        /* Estados Presentes */
+        .estados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .estado-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .estado-card:hover {
+            transform: translateY(-5px);
+            background: var(--primary);
+            color: white;
+        }
+
+        .estado-card:hover .estado-sigla {
+            background: var(--accent);
+        }
+
+        .estado-sigla {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 10px;
+            transition: var(--transition);
+        }
+
+        .estado-nome {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .estado-ano {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Galeria Expandida */
+        .filtros-galeria {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filtro-btn {
+            background: white;
+            border: 2px solid var(--secondary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .filtro-btn.active, .filtro-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .galeria-grid-expandida {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .galeria-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent 40%, rgba(0,0,0,0.8));
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            opacity: 1;
+        }
+
+        .galeria-info h4 {
+            color: white;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .galeria-info p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* Modal da Galeria */
+        .modal-galeria {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-galeria.active {
+            display: flex;
+        }
+
+        .modal-galeria-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-galeria-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+
+        .close-galeria {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .galeria-navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+
+        .galeria-nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .galeria-nav-btn:hover {
+            background: var(--accent);
+        }
+        
+        /* Transparência */
+        .transparencia-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .transparencia-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .transparencia-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .transparencia-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            background-color: #d19c3a;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .historia-content, .fases-expansao {
+                grid-template-columns: 1fr;
+            }
+            
+            .expansao-global {
+                padding: 30px;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:after {
+                left: 20px !important;
+            }
+            
+            .lideranca-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reconhecimentos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .estados-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .galeria-grid-expandida {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-sobre h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-sobre p {
+                font-size: 1.1rem;
+            }
+            
+            .expansao-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .lider-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .diretores-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .equipe-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .lider-content {
+                padding: 20px;
+            }
+
+            .estados-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filtros-galeria {
+                gap: 5px;
+            }
+
+            .filtro-btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+
+            .galeria-grid-expandida {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .mvv-container, .equipe-grid, .transparencia-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .expansao-global {
+                padding: 20px;
+            }
+            
+            .fase-card {
+                padding: 20px;
+            }
+            
+            .perspectiva-global {
+                padding: 25px;
+            }
+            
+            .equipe-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .lider-img {
+                height: 200px;
+            }
+            
+            .diretor-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .estados-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-item {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe-americas logo-icon"></i>
+                <h1>Instituto Horizonte Global</h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html" class="active">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html">Transparência</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Sobre -->
+    <section class="hero-sobre">
+        <div class="container">
+            <h1>Nossa História e Missão</h1>
+            <p>Do Sertão Pernambucano para o Mundo - Uma Jornada de Transformação Social</p>
+        </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="historia-content">
+                <div class="historia-text">
+                    <p>O Instituto Horizonte Global nasceu em 2009 no coração do Sertão pernambucano, fruto da visão da família Monteiro de Carvalho, tradicional produtora rural de Petrolina (PE). Inspirados pela prosperidade conquistada no agronegócio sustentável, especialmente na fruticultura irrigada do Vale do São Francisco, decidiram transformar parte desse sucesso em impacto social duradouro.</p>
+                    <p>Nossos primeiros passos foram dados nas comunidades rurais de Petrolina, Juazeiro (BA) e Ouricuri (PE), com programas focados em alfabetização infantil e capacitação de jovens do campo. Acreditávamos então, como acreditamos hoje, que a educação é a base para qualquer transformação significativa.</p>
+                    <p>De nossas raízes no Sertão, nasceu uma visão que hoje ultrapassa fronteiras, mostrando que o futuro da transformação social pode começar onde menos se espera.</p>
+                </div>
+                <div class="historia-img">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Fundação do Instituto Horizonte Global">
+                </div>
+            </div>
+            
+            <!-- Expansão Global 2025-2030 -->
+            <div class="expansao-global">
+                <div class="expansao-header">
+                    <h2>🌍 EXPANSÃO 2025–2030</h2>
+                    <p>Estratégia de Internacionalização e Consolidação</p>
+                </div>
+                
+                <div class="fases-expansao">
+                    <div class="fase-card">
+                        <div class="fase-header">
+                            <div class="fase-icon">🌎</div>
+                            <div class="fase-title">
+                                <h3>FASE 1 — Consolidação Nacional</h3>
+                                <div class="fase-periodo">2025–2027</div>
+                            </div>
+                        </div>
+                        <div class="fase-content">
+                            <p><strong>Objetivo:</strong> Fortalecer a presença no Nordeste brasileiro, criando um ecossistema integrado de inovação social.</p>
+                            
+                            <h4>Ações Estratégicas:</h4>
+                            <ul class="fase-lista">
+                                <li>Implantar novas unidades regionais em Recife, Serra Talhada, João Pessoa e Natal</li>
+                                <li>Desenvolver programas de formação em tecnologia social e energias limpas</li>
+                                <li>Expandir parcerias com universidades públicas e privadas</li>
+                                <li>Fortalecer programas de inclusão digital e capacitação profissional</li>
+                            </ul>
+                            
+                            <div class="meta-destaque">
+                                <strong>Meta Quantitativa:</strong> 200 mil beneficiários diretos até 2027
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fase-card">
+                        <div class="fase-header">
+                            <div class="fase-icon">🌍</div>
+                            <div class="fase-title">
+                                <h3>FASE 2 — Expansão Internacional</h3>
+                                <div class="fase-periodo">2027–2030</div>
+                            </div>
+                        </div>
+                        <div class="fase-content">
+                            <p><strong>Objetivo:</strong> Estabelecer presença global, replicando metodologias de impacto social em contextos internacionais.</p>
+                            
+                            <h4>Estrutura de Implantação:</h4>
+                            
+                            <div class="sedes-internacionais">
+                                <div class="sede-card">
+                                    <div class="sede-flag">🇲🇿</div>
+                                    <h4>Maputo, Moçambique</h4>
+                                    <div class="sede-ano">2027</div>
+                                    <p>Centro de formação e cooperação técnica</p>
+                                </div>
+                                <div class="sede-card">
+                                    <div class="sede-flag">🇯🇴</div>
+                                    <h4>Amã, Jordânia</h4>
+                                    <div class="sede-ano">2028</div>
+                                    <p>Integração cultural e reconstrução comunitária</p>
+                                </div>
+                                <div class="sede-card">
+                                    <div class="sede-flag">🇯🇵</div>
+                                    <h4>Tóquio, Japão</h4>
+                                    <div class="sede-ano">2029</div>
+                                    <p>Intercâmbio tecnológico e educacional</p>
+                                </div>
+                                <div class="sede-card">
+                                    <div class="sede-flag">🇨🇭</div>
+                                    <h4>Genebra, Suíça</h4>
+                                    <div class="sede-ano">2030</div>
+                                    <p>Representação institucional global</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="perspectiva-global">
+                    <div class="perspectiva-header">
+                        <h3>📊 PERSPECTIVA GLOBAL — Metas e Impacto Esperado (2030)</h3>
+                    </div>
+                    
+                    <div class="metas-grid">
+                        <div class="meta-item">
+                            <div class="meta-numero">15</div>
+                            <div class="meta-descricao">países com operações diretas</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-numero">2.5M</div>
+                            <div class="meta-descricao">pessoas impactadas</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-numero">75</div>
+                            <div class="meta-descricao">parcerias internacionais</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-numero">$150M</div>
+                            <div class="meta-descricao">em investimentos captados</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conclusao-estrategica">
+                    <h4>🎯 Conclusão Estratégica</h4>
+                    <p>A expansão 2025–2030 representa a maturidade institucional do Horizonte Global e sua transição para uma rede global de transformação social. A estratégia está alinhada com os Objetivos de Desenvolvimento Sustentável (ODS) da ONU e reforça o papel do Brasil como exportador de conhecimento em impacto social.</p>
+                </div>
+            </div>
+
+            <!-- Perspectiva Global Expandida -->
+            <div class="perspectiva-expandida">
+                <div class="expansao-header">
+                    <h2>🚀 VISÃO GLOBAL 2030</h2>
+                    <p>Impacto Transformador em Escala Global</p>
+                </div>
+
+                <div class="impacto-global-grid">
+                    <div class="impacto-card">
+                        <div class="impacto-icon">🌱</div>
+                        <div class="impacto-numero">500+</div>
+                        <div class="impacto-descricao">Comunidades Sustentáveis Implementadas</div>
+                    </div>
+                    <div class="impacto-card">
+                        <div class="impacto-icon">🎓</div>
+                        <div class="impacto-numero">50K</div>
+                        <div class="impacto-descricao">Educadores Capacitados Globalmente</div>
+                    </div>
+                    <div class="impacto-card">
+                        <div class="impacto-icon">💡</div>
+                        <div class="impacto-numero">100+</div>
+                        <div class="impacto-descricao">Tecnologias Sociais Desenvolvidas</div>
+                    </div>
+                    <div class="impacto-card">
+                        <div class="impacto-icon">🤝</div>
+                        <div class="impacto-numero">200+</div>
+                        <div class="impacto-descricao">Organizações Parceiras Globais</div>
+                    </div>
+                </div>
+
+                <div class="perspectiva-header">
+                    <h3>Parcerias Estratégicas Globais</h3>
+                </div>
+
+                <div class="parcerias-globais">
+                    <div class="parceria-item">UNESCO</div>
+                    <div class="parceria-item">Banco Mundial</div>
+                    <div class="parceria-item">MIT Media Lab</div>
+                    <div class="parceria-item">Gates Foundation</div>
+                    <div class="parceria-item">Rockefeller Foundation</div>
+                    <div class="parceria-item">World Economic Forum</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missão, Visão e Valores -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Nossa Essência</h2>
+            <div class="mvv-container">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Missão</h3>
+                    <p>Promover o desenvolvimento social sustentável por meio da educação, tecnologia e empreendedorismo, transformando realidades e construindo futuros promissores em comunidades do Brasil e do mundo.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visão</h3>
+                    <p>Ser referência global em transformação social até 2030, reconhecida pela integração entre tradição, inovação e impacto mensurável.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Valores</h3>
+                    <p><strong>Sustentabilidade:</strong> Agir hoje pensando nas gerações futuras<br>
+                    <strong>Inovação:</strong> Buscar soluções criativas<br>
+                    <strong>Equidade:</strong> Oportunidades iguais para todos<br>
+                    <strong>Transparência:</strong> Prestação de contas clara</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Linha do Tempo -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Nossa Jornada</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2009-2011</div>
+                        <h3>Fundação e Primeiros Projetos</h3>
+                        <p>Programas de alfabetização em 15 comunidades rurais. Capacitação de 200 jovens em técnicas agrícolas sustentáveis. Parcerias com escolas municipais do Sertão.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012-2014</div>
+                        <h3>Expansão Regional</h3>
+                        <p>Lançamento do programa "Juventude Conectada". Expansão para Campina Grande (PB) e Mossoró (RN). Primeiros laboratórios de informática em comunidades rurais.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015-2020</div>
+                        <h3>Consolidação Nacional</h3>
+                        <p>Abertura de polos em Fortaleza, Recife e Belo Horizonte. Reconhecimento como OSCIP. Parcerias com 8 universidades federais.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021-2023</div>
+                        <h3>Reconhecimento e Inovação</h3>
+                        <p>Prêmio Nacional de Inovação Social (2022). Reconhecimento pelo Ministério do Desenvolvimento Social. Expansão do programa de energias renováveis.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024 em diante</div>
+                        <h3>Visão Global</h3>
+                        <p>Inauguração da Sede Internacional. Projeção de atuação em 10 países até 2030. Foco em cooperação Norte-Sul e expansão continental.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presença Nacional -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Presente em Todo o Brasil</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px; color: var(--text-light);">
+                Atuação consolidada em todos os 26 estados e Distrito Federal
+            </p>
+            
+            <div class="estados-grid">
+                <div class="estado-card">
+                    <div class="estado-sigla">PE</div>
+                    <div class="estado-nome">Pernambuco</div>
+                    <div class="estado-ano">Desde 2009</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">BA</div>
+                    <div class="estado-nome">Bahia</div>
+                    <div class="estado-ano">Desde 2010</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">PB</div>
+                    <div class="estado-nome">Paraíba</div>
+                    <div class="estado-ano">Desde 2012</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">RN</div>
+                    <div class="estado-nome">Rio Grande do Norte</div>
+                    <div class="estado-ano">Desde 2013</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">CE</div>
+                    <div class="estado-nome">Ceará</div>
+                    <div class="estado-ano">Desde 2014</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">AL</div>
+                    <div class="estado-nome">Alagoas</div>
+                    <div class="estado-ano">Desde 2015</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">SE</div>
+                    <div class="estado-nome">Sergipe</div>
+                    <div class="estado-ano">Desde 2015</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">PI</div>
+                    <div class="estado-nome">Piauí</div>
+                    <div class="estado-ano">Desde 2016</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">MA</div>
+                    <div class="estado-nome">Maranhão</div>
+                    <div class="estado-ano">Desde 2017</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">MG</div>
+                    <div class="estado-nome">Minas Gerais</div>
+                    <div class="estado-ano">Desde 2018</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">SP</div>
+                    <div class="estado-nome">São Paulo</div>
+                    <div class="estado-ano">Desde 2019</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">RJ</div>
+                    <div class="estado-nome">Rio de Janeiro</div>
+                    <div class="estado-ano">Desde 2020</div>
+                </div>
+                <div class="estado-card">
+                    <div class="estado-sigla">DF</div>
+                    <div class="estado-nome">Distrito Federal</div>
+                    <div class="estado-ano">Desde 2021</div>
+                </div>
+                <!-- Adicione os demais estados seguindo o mesmo padrão -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Expandida -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Nossa Trajetória em Imagens</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 50px; color: var(--text-light);">
+                50 momentos que marcaram nossa história de transformação social
+            </p>
+            
+            <!-- Filtros da Galeria -->
+            <div class="filtros-galeria">
+                <button class="filtro-btn active" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="educacao">Educação</button>
+                <button class="filtro-btn" data-categoria="tecnologia">Tecnologia</button>
+                <button class="filtro-btn" data-categoria="saude">Saúde</button>
+                <button class="filtro-btn" data-categoria="sustentabilidade">Sustentabilidade</button>
+                <button class="filtro-btn" data-categoria="comunidade">Comunidade</button>
+                <button class="filtro-btn" data-categoria="eventos">Eventos</button>
+            </div>
+
+            <!-- Grid da Galeria -->
+            <div class="galeria-grid-expandida">
+                <!-- Educação (10 fotos) -->
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Aula em comunidade rural">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Educação no Sertão</h4>
+                            <p>Primeiras aulas em comunidade rural do Pernambuco (2009)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Biblioteca comunitária">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Biblioteca Comunitária</h4>
+                            <p>Inauguração da primeira biblioteca em Petrolina (2010)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Formatura de jovens">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Primeira Formatura</h4>
+                            <p>Cerimônia de formatura dos primeiros 50 jovens (2011)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Oficina de leitura">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Oficina de Leitura</h4>
+                            <p>Atividade de incentivo à leitura com crianças (2012)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Aula de informática">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Inclusão Digital</h4>
+                            <p>Primeiras aulas de informática para adultos (2013)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Projeto de ciências">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Feira de Ciências</h4>
+                            <p>Estudantes apresentando projetos científicos (2014)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Aula ao ar livre">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Educação Ambiental</h4>
+                            <p>Aulas práticas de sustentabilidade (2015)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Curso profissionalizante">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Formação Profissional</h4>
+                            <p>Curso de capacitação para jovens (2016)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Formatura universitária">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Conquista Universitária</h4>
+                            <p>Primeiros estudantes do projeto ingressando na universidade (2017)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="educacao">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Educação especial">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Educação Inclusiva</h4>
+                            <p>Programa de atendimento a crianças com necessidades especiais (2018)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tecnologia (8 fotos) -->
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Laboratório de informática">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Primeiro Laboratório</h4>
+                            <p>Inauguração do laboratório de informática (2012)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Workshop de programação">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Workshop de Programação</h4>
+                            <p>Primeiro curso de introdução à programação (2014)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Robótica educacional">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Oficina de Robótica</h4>
+                            <p>Projeto de robótica para estudantes (2016)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Desenvolvimento de apps">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Desenvolvimento de Apps</h4>
+                            <p>Jovens criando aplicativos para comunidades (2017)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Internet nas comunidades">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Conectividade Rural</h4>
+                            <p>Instalação de internet em comunidades isoladas (2018)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Realidade virtual">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Tecnologia Imersiva</h4>
+                            <p>Uso de realidade virtual na educação (2019)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Maker space">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Espaço Maker</h4>
+                            <p>Laboratório de criação e prototipagem (2020)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="tecnologia">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inteligência artificial">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>IA para o Social</h4>
+                            <p>Workshop de inteligência artificial aplicada (2021)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saúde (7 fotos) -->
+                <div class="galeria-item" data-categoria="saude">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Atendimento médico">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Primeiros Atendimentos</h4>
+                            <p>Início do programa de saúde comunitária (2013)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="saude">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Vacinação">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Campanha de Vacinação</h4>
+                            <p>Mutirão de vacinação em comunidades rurais (2014)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="saude">
+                    <img src="https://images.unsplash.com/photo-1584467735871-8db9ac8d55b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Odontologia móvel">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Odontologia Móvel</h4>
+                            <p>Unidade odontológica itinerante (2015)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="saude">
+                    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Prevenção">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Educação em Saúde</h4>
+                            <p>Palestras de prevenção de doenças (2016)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="saude">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Saúde mental">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Saúde Mental</h4>
+                            <p>Programa de apoio psicológico (2017)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="saude">
+                    <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nutrição">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Orientação Nutricional</h4>
+                            <p>Workshops de alimentação saudável (2018)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="saude">
+                    <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Telemedicina">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Telemedicina</h4>
+                            <p>Implementação de consultas remotas (2020)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sustentabilidade (8 fotos) -->
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Agricultura sustentável">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Agricultura Orgânica</h4>
+                            <p>Primeiras hortas comunitárias (2011)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Energia solar">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Energia Solar</h4>
+                            <p>Instalação de painéis solares (2015)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Reciclagem">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Coleta Seletiva</h4>
+                            <p>Programa de reciclagem comunitária (2016)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sustentabilidade (continuação) -->
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Reciclagem">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Coleta Seletiva</h4>
+                            <p>Programa de reciclagem comunitária (2016)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Compostagem">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Compostagem Comunitária</h4>
+                            <p>Sistema de compostagem em larga escala (2017)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Agricultura urbana">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Agricultura Urbana</h4>
+                            <p>Hortas verticais em centros urbanos (2018)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Energia eólica">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Energia Eólica</h4>
+                            <p>Primeiros aerogeradores comunitários (2019)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="sustentabilidade">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gestão de água">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Gestão de Água</h4>
+                            <p>Sistema de captação de água da chuva (2020)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comunidade (8 fotos) -->
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mutirão comunitário">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Primeiro Mutirão</h4>
+                            <p>Reforma de espaço comunitário (2010)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Festival cultural">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Festival Cultural</h4>
+                            <p>Primeira edição do festival comunitário (2012)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Oficina de artesanato">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Artesanato Local</h4>
+                            <p>Oficina de valorização cultural (2014)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Reunião comunitária">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Assembleia Comunitária</h4>
+                            <p>Primeira assembleia de planejamento (2015)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Celebração">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Celebração de Conquistas</h4>
+                            <p>Festa pelos primeiros resultados (2016)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integração geracional">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Integração Geracional</h4>
+                            <p>Projeto conectando jovens e idosos (2017)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cooperativa">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Cooperativa Comunitária</h4>
+                            <p>Lançamento da primeira cooperativa (2018)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="comunidade">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rede solidária">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Rede Solidária</h4>
+                            <p>Formação de rede de apoio comunitário (2019)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eventos (9 fotos) -->
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inauguração sede">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Inauguração da Sede</h4>
+                            <p>Cerimônia de abertura da primeira sede (2011)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Premiação">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Primeira Premiação</h4>
+                            <p>Reconhecimento nacional do trabalho (2013)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Parceria internacional">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Parceria Internacional</h4>
+                            <p>Assinatura do primeiro acordo global (2015)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Aniversário 10 anos">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>10 Anos de Impacto</h4>
+                            <p>Celebração da primeira década (2019)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Workshop internacional">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Workshop Internacional</h4>
+                            <p>Primeiro evento com participantes globais (2020)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Formatura em massa">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Formatura Coletiva</h4>
+                            <p>Cerimônia para 500 formandos (2021)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inauguração polo">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Novo Polo Regional</h4>
+                            <p>Inauguração do polo Nordeste (2022)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Conferência anual">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Conferência Anual</h4>
+                            <p>Encontro nacional de voluntários (2023)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="galeria-item" data-categoria="eventos">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lançamento expansão">
+                    <div class="galeria-overlay">
+                        <div class="galeria-info">
+                            <h4>Lançamento da Expansão</h4>
+                            <p>Anúncio da estratégia global 2025-2030 (2024)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Ver Mais -->
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn" id="ver-mais-fotos">Ver Mais Fotos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal da Galeria -->
+    <div class="modal-galeria" id="modal-galeria">
+        <button class="close-galeria">&times;</button>
+        <div class="galeria-navigation">
+            <button class="galeria-nav-btn" id="prev-btn">‹</button>
+            <button class="galeria-nav-btn" id="next-btn">›</button>
+        </div>
+        <div class="modal-galeria-content">
+            <img id="modal-img" src="https://via.placeholder.com/500x300?text=Imagem" alt="">
+            <div class="modal-galeria-info" style="color: white; text-align: center; margin-top: 20px;">
+                <h4 id="modal-title"></h4>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nossa Equipe - VERSÃO MELHORADA -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Nossa Equipe</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 50px; color: var(--text-light);">
+                Conheça as mentes e corações por trás de cada transformação
+            </p>
+            
+            <div class="equipe-lideranca">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 40px; font-size: 1.5rem;">Liderança Executiva</h3>
+                <div class="lideranca-grid">
+                    <div class="lider-card">
+                        <div class="lider-img">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ana Monteiro de Carvalho">
+                            <div class="lider-badge">Fundadora</div>
+                        </div>
+                        <div class="lider-content">
+                            <h4>Ana Monteiro de Carvalho</h4>
+                            <div class="lider-cargo">Fundadora e Presidente</div>
+                            <div class="lider-stats">
+                                <div class="stat">
+                                    <div class="stat-number">25</div>
+                                    <div class="stat-label">Anos de Experiência</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">Projetos Liderados</div>
+                                </div>
+                            </div>
+                            <p class="lider-desc">Visionária e empreendedora social com trajetória dedicada ao desenvolvimento sustentável. PhD em Políticas Públicas pela Harvard University e Mestra em Desenvolvimento Social pela UFPE.</p>
+                            <div class="lider-contato">
+                                <a href="mailto:ana.carvalho@horizontoglobal.org" class="contato-link">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="#" class="contato-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lider-card">
+                        <div class="lider-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Carlos Monteiro de Carvalho">
+                            <div class="lider-badge">Co-fundador</div>
+                        </div>
+                        <div class="lider-content">
+                            <h4>Carlos Monteiro de Carvalho</h4>
+                            <div class="lider-cargo">Vice-Presidente Executivo</div>
+                            <div class="lider-stats">
+                                <div class="stat">
+                                    <div class="stat-number">22</div>
+                                    <div class="stat-label">Anos de Experiência</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">100+</div>
+                                    <div class="stat-label">Parcerias Firmadas</div>
+                                </div>
+                            </div>
+                            <p class="lider-desc">Especialista em agronegócio sustentável e expansão de projetos sociais. Engenheiro Agrônomo com PhD em Sustentabilidade pela USP e MBA em Gestão Estratégica pela FGV.</p>
+                            <div class="lider-contato">
+                                <a href="mailto:carlos.carvalho@horizontoglobal.org" class="contato-link">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="#" class="contato-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diretores Expandidos -->
+            <div class="equipe-diretores">
+                <h3 style="text-align: center; color: var(--primary); margin: 60px 0 40px; font-size: 1.5rem;">Diretoria Executiva Expandida</h3>
+                <div class="diretores-grid">
+                    <div class="diretor-card">
+                        <div class="diretor-header">
+                            <div class="diretor-avatar">
+                                <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dra. Maria Silva">
+                            </div>
+                            <div class="diretor-info">
+                                <h4>Dra. Maria Silva</h4>
+                                <div class="diretor-cargo">Diretora de Projetos e Inovação</div>
+                            </div>
+                        </div>
+                        <div class="diretor-content">
+                            <p>Doutora em Educação com foco em políticas públicas para comunidades rurais. 18 anos de experiência em gestão de projetos sociais. Ex-coordenadora do PNUD no Brasil.</p>
+                            <div class="diretor-expertise">
+                                <span class="expertise-tag">Educação</span>
+                                <span class="expertise-tag">Políticas Públicas</span>
+                                <span class="expertise-tag">Gestão Estratégica</span>
+                                <span class="expertise-tag">Inovação Social</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diretor-card">
+                        <div class="diretor-header">
+                            <div class="diretor-avatar">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dr. Roberto Lima">
+                            </div>
+                            <div class="diretor-info">
+                                <h4>Dr. Roberto Lima</h4>
+                                <div class="diretor-cargo">Diretor de Tecnologia e Inovação</div>
+                            </div>
+                        </div>
+                        <div class="diretor-content">
+                            <p>PhD em Ciência da Computação com especialização em tecnologia para desenvolvimento social. 15 anos de experiência no MIT Media Lab. Líder em inovação tecnológica comunitária.</p>
+                            <div class="diretor-expertise">
+                                <span class="expertise-tag">Tecnologia</span>
+                                <span class="expertise-tag">Inovação</span>
+                                <span class="expertise-tag">IoT</span>
+                                <span class="expertise-tag">AI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diretor-card">
+                        <div class="diretor-header">
+                            <div class="diretor-avatar">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dra. Fernanda Costa">
+                            </div>
+                            <div class="diretor-info">
+                                <h4>Dra. Fernanda Costa</h4>
+                                <div class="diretor-cargo">Diretora de Saúde Comunitária</div>
+                            </div>
+                        </div>
+                        <div class="diretor-content">
+                            <p>Médica com especialização em Saúde Pública e Saúde da Família. 20 anos de experiência em programas de saúde comunitária. Ex-consultora da Organização Mundial da Saúde.</p>
+                            <div class="diretor-expertise">
+                                <span class="expertise-tag">Saúde Pública</span>
+                                <span class="expertise-tag">Medicina</span>
+                                <span class="expertise-tag">Comunidade</span>
+                                <span class="expertise-tag">Epidemiologia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diretor-card">
+                        <div class="diretor-header">
+                            <div class="diretor-avatar">
+                                <img src="https://images.unsplash.com/photo-1474176857210-7287d38d27c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dr. Paulo Santos">
+                            </div>
+                            <div class="diretor-info">
+                                <h4>Dr. Paulo Santos</h4>
+                                <div class="diretor-cargo">Diretora de Sustentabilidade</div>
+                            </div>
+                        </div>
+                        <div class="diretor-content">
+                            <p>PhD em Engenharia Ambiental com 18 anos de experiência em projetos sustentáveis. Ex-pesquisador da EMBRAPA e consultor do Banco Mundial em projetos de desenvolvimento sustentável.</p>
+                            <div class="diretor-expertise">
+                                <span class="expertise-tag">Sustentabilidade</span>
+                                <span class="expertise-tag">Meio Ambiente</span>
+                                <span class="expertise-tag">Energias Renováveis</span>
+                                <span class="expertise-tag">Agroecologia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diretor-card">
+                        <div class="diretor-header">
+                            <div class="diretor-avatar">
+                                <img src="https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dra. Beatriz Oliveira">
+                            </div>
+                            <div class="diretor-info">
+                                <h4>Dra. Beatriz Oliveira</h4>
+                                <div class="diretor-cargo">Diretora de Educação</div>
+                            </div>
+                        </div>
+                        <div class="diretor-content">
+                            <p>Doutora em Educação com 22 anos de experiência em pedagogia social. Ex-diretora de projetos educacionais na UNESCO e professora titular da UFBA.</p>
+                            <div class="diretor-expertise">
+                                <span class="expertise-tag">Educação</span>
+                                <span class="expertise-tag">Pedagogia</span>
+                                <span class="expertise-tag">Formação</span>
+                                <span class="expertise-tag">Metodologias</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diretor-card">
+                        <div class="diretor-header">
+                            <div class="diretor-avatar">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dr. Ricardo Ferreira">
+                            </div>
+                            <div class="diretor-info">
+                                <h4>Dr. Ricardo Ferreira</h4>
+                                <div class="diretor-cargo">Diretora de Expansão Internacional</div>
+                            </div>
+                        </div>
+                        <div class="diretor-content">
+                            <p>PhD em Relações Internacionais com 15 anos de experiência em cooperação internacional. Ex-diplomata e consultor de organizações multilaterais.</p>
+                            <div class="diretor-expertise">
+                                <span class="expertise-tag">Relações Internacionais</span>
+                                <span class="expertise-tag">Diplomacia</span>
+                                <span class="expertise-tag">Cooperação</span>
+                                <span class="expertise-tag">Expansão</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Equipe Expandida -->
+            <div class="equipe-expandida">
+                <h3 style="text-align: center; color: var(--primary); margin: 60px 0 40px; font-size: 1.5rem;">Nossa Equipe em Números</h3>
+                <div class="equipe-stats">
+                    <div class="equipe-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Colaboradores</div>
+                    </div>
+                    <div class="equipe-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Com Pós-Graduação</div>
+                    </div>
+                    <div class="equipe-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="stat-number">27</div>
+                        <div class="stat-label">Unidades Federativas</div>
+                    </div>
+                    <div class="equipe-stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-number">18+</div>
+                        <div class="stat-label">Anos de Experiência Média</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reconhecimentos Expandidos -->
+    <section class="section bg-primary">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Reconhecimentos e Prêmios</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 50px; color: rgba(255,255,255,0.8);">
+                Excelência e impacto reconhecidos nacional e internacionalmente
+            </p>
+            
+            <div class="reconhecimentos-grid">
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="reconhecimento-year">2023</div>
+                    <h3>Prêmio UNESCO de Educação para o Desenvolvimento Sustentável</h3>
+                    <p>Reconhecimento por metodologias inovadoras em educação comunitária</p>
+                    <div class="reconhecimento-org">UNESCO</div>
+                </div>
+
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="reconhecimento-year">2022</div>
+                    <h3>Prêmio Nacional de Inovação Social</h3>
+                    <p>Destaque em tecnologias sociais para desenvolvimento comunitário</p>
+                    <div class="reconhecimento-org">Ministério da Ciência e Tecnologia</div>
+                </div>
+
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="reconhecimento-year">2022</div>
+                    <h3>Melhor OSCIP do Nordeste</h3>
+                    <p>Excelência em gestão e impacto social na região Nordeste</p>
+                    <div class="reconhecimento-org">Instituto Doar</div>
+                </div>
+
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="reconhecimento-year">2021-2023</div>
+                    <h3>Selo de Transparência e Boas Práticas</h3>
+                    <p>Reconhecimento consecutivo pela excelência na prestação de contas</p>
+                    <div class="reconhecimento-org">Instituto Doar + PNUD</div>
+                </div>
+
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="reconhecimento-year">2021</div>
+                    <h3>Prêmio Global de Inovação Comunitária</h3>
+                    <p>Destaque internacional em soluções locais com impacto global</p>
+                    <div class="reconhecimento-org">World Innovation Summit</div>
+                </div>
+
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="reconhecimento-year">2020</div>
+                    <h3>Prêmio Sustentabilidade e Meio Ambiente</h3>
+                    <p>Excelência em projetos de desenvolvimento sustentável</p>
+                    <div class="reconhecimento-org">Ministério do Meio Ambiente</div>
+                </div>
+
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="reconhecimento-year">2019</div>
+                    <h3>Prêmio Direitos Humanos e Cidadania</h3>
+                    <p>Destaque em projetos de inclusão social e garantia de direitos</p>
+                    <div class="reconhecimento-org">Secretaria de Direitos Humanos</div>
+                </div>
+
+                <div class="reconhecimento-card">
+                    <div class="reconhecimento-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="reconhecimento-year">2018</div>
+                    <h3>Prêmio Educação Transformadora</h3>
+                    <p>Reconhecimento por metodologias inovadoras em educação popular</p>
+                    <div class="reconhecimento-org">Ministério da Educação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparência -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Transparência</h2>
+            <div class="transparencia-cards">
+                <div class="transparencia-card">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>Balanços Anuais</h3>
+                    <p>Relatórios financeiros completos disponíveis para consulta pública</p>
+                    <a href="#" class="btn">Acessar</a>
+                </div>
+                <div class="transparencia-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Relatórios de Impacto</h3>
+                    <p>Métricas e resultados dos nossos projetos trimestralmente</p>
+                    <a href="#" class="btn">Acessar</a>
+                </div>
+                <div class="transparencia-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Auditoria Independente</h3>
+                    <p>Resultados das auditorias anuais realizadas por empresa externa</p>
+                    <a href="#" class="btn">Acessar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Instituto Horizonte Global</h3>
+                    <p>Transformando vidas, construindo futuros desde 2009. Atuamos no desenvolvimento social e sustentável em comunidades no Brasil e no exterior.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="projetos.html">Nossos Projetos</a></li>
+                        <li><a href="transparencia.html">Transparência</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Participe</h3>
+                    <ul>
+                        <li><a href="voluntariado.html">Seja Voluntário</a></li>
+                        <li><a href="doacoes.html">Faça uma Doação</a></li>
+                        <li><a href="parcerias.html">Seja Parceiro</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Sede Institucional: Empresarial Center III — Boa Viagem, Recife - PE</li>
+                        <li><i class="fas fa-phone"></i> +55 (81) 3333-3333</li>
+                        <li><i class="fas fa-envelope"></i> contato@horizontoglobal.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Instituto Horizonte Global. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Filtros da Galeria
+        document.querySelectorAll('.filtro-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active de todos os botões
+                document.querySelectorAll('.filtro-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Adiciona active ao botão clicado
+                this.classList.add('active');
+                
+                const categoria = this.getAttribute('data-categoria');
+                const galeriaItems = document.querySelectorAll('.galeria-item');
+                
+                galeriaItems.forEach(item => {
+                    if (categoria === 'todos' || item.getAttribute('data-categoria') === categoria) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal da Galeria
+        const modalGaleria = document.getElementById('modal-galeria');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const closeModal = document.querySelector('.close-galeria');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let currentIndex = 0;
+        const galeriaItems = Array.from(document.querySelectorAll('.galeria-item'));
+
+        // Abrir modal
+        galeriaItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                updateModal();
+                modalGaleria.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Fechar modal
+        closeModal.addEventListener('click', () => {
+            modalGaleria.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Navegação
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + galeriaItems.length) % galeriaItems.length;
+            updateModal();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % galeriaItems.length;
+            updateModal();
+        });
+
+        // Teclado
+        document.addEventListener('keydown', (e) => {
+            if (!modalGaleria.classList.contains('active')) return;
+            
+            if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + galeriaItems.length) % galeriaItems.length;
+                updateModal();
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % galeriaItems.length;
+                updateModal();
+            } else if (e.key === 'Escape') {
+                modalGaleria.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        function updateModal() {
+            const currentItem = galeriaItems[currentIndex];
+            const imgSrc = currentItem.querySelector('img').src;
+            const title = currentItem.querySelector('.galeria-info h4').textContent;
+            const description = currentItem.querySelector('.galeria-info p').textContent;
+            
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+        }
+
+        // Ver Mais Fotos (Carregamento Lazy)
+        const verMaisBtn = document.getElementById('ver-mais-fotos');
+        let fotosVisiveis = 20;
+
+        verMaisBtn.addEventListener('click', () => {
+            const todasFotos = document.querySelectorAll('.galeria-item');
+            fotosVisiveis += 10;
+            
+            for (let i = 0; i < todasFotos.length; i++) {
+                if (i < fotosVisiveis) {
+                    todasFotos[i].style.display = 'block';
+                }
+            }
+            
+            if (fotosVisiveis >= todasFotos.length) {
+                verMaisBtn.style.display = 'none';
+            }
+        });
+
+        // Inicializar - mostrar apenas primeiras 20 fotos
+        document.addEventListener('DOMContentLoaded', () => {
+            const todasFotos = document.querySelectorAll('.galeria-item');
+            for (let i = 0; i < todasFotos.length; i++) {
+                if (i >= 20) {
+                    todasFotos[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos Sociais - Instituto Horizonte Global</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #7a9e7e;
+            --accent: #e8b054;
+            --light: #f5f5f5;
+            --dark: #1a1a1a;
+            --text: #333333;
+            --text-light: #777777;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background-color: rgba(44, 85, 48, 0.1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Projetos */
+        .hero-projetos {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero-projetos h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-projetos p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Seções Gerais */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto;
+        }
+        
+        .bg-light {
+            background-color: #f9f9f9;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Filtros */
+        .filtros {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .filtro-btn {
+            background: white;
+            border: 2px solid var(--secondary);
+            color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .filtro-btn.active, .filtro-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Grid de Projetos */
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .projeto-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .projeto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .projeto-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .projeto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .projeto-card:hover .projeto-img img {
+            transform: scale(1.1);
+        }
+        
+        .projeto-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .projeto-content {
+            padding: 25px;
+        }
+        
+        .projeto-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .projeto-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .projeto-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .projeto-meta i {
+            color: var(--accent);
+        }
+        
+        .projeto-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            background-color: #d19c3a;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Impacto */
+        .impacto-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .impacto-item {
+            padding: 30px 20px;
+        }
+        
+        .impacto-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                        url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFade 0.3s;
+        }
+        
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 30px;
+            position: relative;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .projeto-detalhes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .projeto-imagem-detalhe {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .projeto-imagem-detalhe img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .projeto-info h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .projeto-info p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .projeto-meta-detalhes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f5f5f5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .meta-item i {
+            color: var(--accent);
+        }
+        
+        .projeto-historia, .projeto-metas {
+            margin-bottom: 30px;
+        }
+        
+        .projeto-historia h4, .projeto-metas h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+        }
+        
+        .projeto-metas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .meta-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .meta-card h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .meta-card ul {
+            padding-left: 20px;
+        }
+        
+        .meta-card li {
+            margin-bottom: 8px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .projetos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .projeto-detalhes {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-projetos h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-projetos p {
+                font-size: 1.1rem;
+            }
+            
+            .filtros {
+                gap: 10px;
+            }
+            
+            .filtro-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .projetos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe-americas logo-icon"></i>
+                <h1>Instituto Horizonte Global</h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html" class="active">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html">Transparência</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Projetos -->
+    <section class="hero-projetos">
+        <div class="container">
+            <h1>Nossos Projetos Sociais</h1>
+            <p>Transformando realidades através de iniciativas sustentáveis e inovadoras em educação, tecnologia e desenvolvimento comunitário</p>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="section">
+        <div class="container">
+            <div class="filtros">
+                <button class="filtro-btn active" data-filter="todos">Todos os Projetos</button>
+                <button class="filtro-btn" data-filter="educacao">Educação</button>
+                <button class="filtro-btn" data-filter="tecnologia">Tecnologia</button>
+                <button class="filtro-btn" data-filter="sustentabilidade">Sustentabilidade</button>
+                <button class="filtro-btn" data-filter="saude">Saúde</button>
+                <button class="filtro-btn" data-filter="internacional">Internacional</button>
+            </div>
+
+            <!-- Grid de Projetos -->
+            <div class="projetos-grid">
+                <!-- Projeto 1: Educação Infantil -->
+                <div class="projeto-card" data-category="educacao">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Educação Infantil">
+                        <div class="projeto-badge">Ativo</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Educação Infantil</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Sertão Pernambucano</span>
+                            <span><i class="fas fa-users"></i> 2.500+ crianças</span>
+                        </div>
+                        <p>Programas de alfabetização e desenvolvimento infantil em comunidades rurais do Nordeste brasileiro, com metodologias adaptadas à realidade local.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">15</div>
+                                <div class="stat-label">Comunidades</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Aprovação</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">Anos</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="1">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Projeto 2: Juventude Conectada -->
+                <div class="projeto-card" data-category="tecnologia">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Inclusão Digital">
+                        <div class="projeto-badge">Ativo</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Juventude Conectada</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Nordeste</span>
+                            <span><i class="fas fa-users"></i> 3.200+ jovens</span>
+                        </div>
+                        <p>Capacitação tecnológica para jovens e adultos, preparando para as oportunidades da economia digital com cursos de programação, design e marketing digital.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Laboratórios</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Empregabilidade</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Anos</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="2">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Projeto 3: Agricultura Sustentável -->
+                <div class="projeto-card" data-category="sustentabilidade">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Agricultura Sustentável">
+                        <div class="projeto-badge">Ativo</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Agricultura Sustentável</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Vale do São Francisco</span>
+                            <span><i class="fas fa-users"></i> 800+ famílias</span>
+                        </div>
+                        <p>Implementação de técnicas agrícolas sustentáveis e apoio à agricultura familiar em comunidades rurais, com foco em fruticultura irrigada.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">1.200</div>
+                                <div class="stat-label">Hectares</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">40%</div>
+                                <div class="stat-label">Economia de Água</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">6</div>
+                                <div class="stat-label">Anos</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="3">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Projeto 4: Saúde Comunitária -->
+                <div class="projeto-card" data-category="saude">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Saúde Comunitária">
+                        <div class="projeto-badge">Ativo</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Saúde Comunitária</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Interior do Nordeste</span>
+                            <span><i class="fas fa-users"></i> 5.000+ pessoas</span>
+                        </div>
+                        <p>Atendimento médico básico, prevenção de doenças e promoção da saúde em comunidades carentes através de unidades móveis e parcerias com profissionais.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">25</div>
+                                <div class="stat-label">Comunidades</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">3.2k</div>
+                                <div class="stat-label">Consultas</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">3</div>
+                                <div class="stat-label">Anos</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="4">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Projeto 5: Energia Solar Comunitária -->
+                <div class="projeto-card" data-category="sustentabilidade">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Energia Solar">
+                        <div class="projeto-badge">Em Expansão</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Energia Solar Comunitária</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Semiárido</span>
+                            <span><i class="fas fa-users"></i> 1.500+ famílias</span>
+                        </div>
+                        <p>Instalação de sistemas de energia solar em comunidades rurais, proporcionando acesso à energia limpa e reduzindo custos com eletricidade.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">45</div>
+                                <div class="stat-label">Sistemas</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">80%</div>
+                                <div class="stat-label">Redução de Custos</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">2</div>
+                                <div class="stat-label">Anos</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="5">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Projeto 6: Cooperação Internacional -->
+                <div class="projeto-card" data-category="internacional">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cooperação Internacional">
+                        <div class="projeto-badge">Planejamento</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Cooperação Norte-Sul</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> África e América Latina</span>
+                            <span><i class="fas fa-users"></i> Planejado: 10.000+</span>
+                        </div>
+                        <p>Expansão internacional dos nossos programas de educação e sustentabilidade para países em desenvolvimento, focando em cooperação técnica.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">Países</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">15</div>
+                                <div class="stat-label">Projetos</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">2025</div>
+                                <div class="stat-label">Início</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="6">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Projeto 7: Formação Profissional -->
+                <div class="projeto-card" data-category="educacao">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Educação Profissional">
+                        <div class="projeto-badge">Ativo</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Formação Profissional</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Todo Brasil</span>
+                            <span><i class="fas fa-users"></i> 4.000+ alunos</span>
+                        </div>
+                        <p>Cursos técnicos e profissionalizantes em parceria com empresas locais, preparando jovens para o mercado de trabalho em setores estratégicos.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Cursos</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">78%</div>
+                                <div class="stat-label">Empregados</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4</div>
+                                <div class="stat-label">Anos</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="7">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Projeto 8: Inovação no Campo -->
+                <div class="projeto-card" data-category="tecnologia">
+                    <div class="projeto-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Inovação Rural">
+                        <div class="projeto-badge">Piloto</div>
+                    </div>
+                    <div class="projeto-content">
+                        <h3>Inovação no Campo</h3>
+                        <div class="projeto-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Zonas Rurais</span>
+                            <span><i class="fas fa-users"></i> 600+ produtores</span>
+                        </div>
+                        <p>Implementação de tecnologias agrícolas avançadas e IoT para otimizar a produção rural, aumentando a produtividade e sustentabilidade.</p>
+                        <div class="projeto-stats">
+                            <div class="stat">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Tecnologias</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">35%</div>
+                                <div class="stat-label">Aumento Produtividade</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">1</div>
+                                <div class="stat-label">Ano</div>
+                            </div>
+                        </div>
+                        <button class="btn ver-detalhes" data-projeto="8">Saiba Mais</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacto -->
+    <section class="section bg-primary">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Impacto dos Nossos Projetos</h2>
+            <div class="impacto-stats">
+                <div class="impacto-item">
+                    <div class="impacto-number">25.000+</div>
+                    <div class="impacto-text">Pessoas Impactadas</div>
+                </div>
+                <div class="impacto-item">
+                    <div class="impacto-number">80+</div>
+                    <div class="impacto-text">Comunidades Atendidas</div>
+                </div>
+                <div class="impacto-item">
+                    <div class="impacto-number">15</div>
+                    <div class="impacto-text">Projetos Ativos</div>
+                </div>
+                <div class="impacto-item">
+                    <div class="impacto-number">5</div>
+                    <div class="impacto-text">Países com Presença</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Junte-se a Nossos Projetos</h2>
+            <p>Seja um voluntário, parceiro ou apoiador e faça parte da transformação de milhares de vidas através dos nossos projetos sociais.</p>
+            <div class="cta-buttons">
+                <a href="voluntariado.html" class="btn">Seja Voluntário</a>
+                <a href="doacoes.html" class="btn btn-outline">Apoie um Projeto</a>
+                <a href="parcerias.html" class="btn btn-outline">Seja Parceiro</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Instituto Horizonte Global</h3>
+                    <p>Transformando vidas, construindo futuros desde 2009. Atuamos no desenvolvimento social e sustentável em comunidades no Brasil e no exterior.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="projetos.html">Nossos Projetos</a></li>
+                        <li><a href="transparencia.html">Transparência</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Participe</h3>
+                    <ul>
+                        <li><a href="voluntariado.html">Seja Voluntário</a></li>
+                        <li><a href="doacoes.html">Faça uma Doação</a></li>
+                        <li><a href="parcerias.html">Seja Parceiro</a></li>
+                        <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Sede Institucional: Empresarial Center III — Boa Viagem, Recife - PE</li>
+                        <li><i class="fas fa-phone"></i> +55 (81) 3333-3333</li>
+                        <li><i class="fas fa-envelope"></i> contato@horizontoglobal.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Instituto Horizonte Global. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Detalhes dos Projetos -->
+    <div id="modal-projeto" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-titulo">Detalhes do Projeto</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body" id="modal-corpo">
+                <!-- Conteúdo será preenchido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Filtros de projetos
+        document.querySelectorAll('.filtro-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active de todos os botões
+                document.querySelectorAll('.filtro-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Adiciona active ao botão clicado
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const projects = document.querySelectorAll('.projeto-card');
+                
+                projects.forEach(project => {
+                    if (filter === 'todos' || project.getAttribute('data-category') === filter) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animação para números de impacto
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start) + "+";
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Iniciar animação quando a seção de impacto estiver visível
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stats = document.querySelectorAll('.impacto-number');
+                    animateValue(stats[0], 0, 25000, 2000);
+                    animateValue(stats[1], 0, 80, 1500);
+                    animateValue(stats[2], 0, 15, 1000);
+                    animateValue(stats[3], 0, 5, 800);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.impacto-stats'));
+
+        // Dados dos projetos
+        const projetos = {
+            1: {
+                titulo: "Educação Infantil",
+                imagem: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "Sertão Pernambucano",
+                beneficiarios: "2.500+ crianças",
+                comunidades: "15 comunidades",
+                inicio: "2009",
+                historia: "O projeto nasceu em 2009 quando nossa equipe visitou comunidades rurais no Sertão Pernambucano e identificou que 72% das crianças entre 6-9 anos apresentavam deficiências graves em leitura e escrita. A professora Maria do Socorro, que lecionava há 25 anos em uma escola de taipa, compartilhou conosco: 'Muitas crianças caminham 7km sob sol forte para chegar à escola, mas quando chegam, não temos materiais adequados para ensiná-las. Algumas vêm sem comer e fica difícil concentrar'.",
+                metas: {
+                    curto: ["Implementar 2 novas bibliotecas comunitárias", "Capacitar 30 educadores locais em metodologias ativas"],
+                    medio: ["Reduzir em 45% o índice de analfabetismo funcional", "Expandir para 20 comunidades"],
+                    longo: ["Atingir 4.000 crianças", "Estabelecer um centro de formação de professores rurais"]
+                }
+            },
+            2: {
+                titulo: "Juventude Conectada",
+                imagem: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "Nordeste",
+                beneficiarios: "3.200+ jovens",
+                laboratorios: "12 laboratórios",
+                inicio: "2016",
+                historia: "Em 2016, durante uma visita a uma comunidade rural, conhecemos João, 16 anos, que nos mostrou um aplicativo que havia criado sozinho usando um celular antigo emprestado. 'Quero ser programador, mas aqui não tem curso, nem internet boa', contou. Sua paixão pela tecnologia em meio às limitações nos inspirou a criar o Juventude Conectada.",
+                metas: {
+                    curto: ["Implementar 3 novos laboratórios com foco em cidades do interior"],
+                    medio: ["Atingir 5.000 jovens formados", "Criar uma plataforma de empregabilidade exclusiva"],
+                    longo: ["Estabelecer um centro de inovação tecnológica no Nordeste"]
+                }
+            },
+            3: {
+                titulo: "Agricultura Sustentável",
+                imagem: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "Vale do São Francisco",
+                beneficiarios: "800+ famílias",
+                area: "1.200 hectares",
+                inicio: "2018",
+                historia: "O projeto começou em 2018 quando o agricultor Seu Luís, 62 anos, nos mostrou sua plantação de manga: 'Planto há 40 anos igual meu pai me ensinou, mas a terra já não é mais a mesma'. A erosão do solo e o desperdício de água nos motivaram a buscar soluções sustentáveis.",
+                metas: {
+                    curto: ["Implantar sistemas de compostagem em 100% das propriedades"],
+                    medio: ["Atingir 1.500 famílias", "Criar marca coletiva 'Fruto do Sertão'"],
+                    longo: ["Tornar a região referência em fruticultura sustentável"]
+                }
+            },
+            4: {
+                titulo: "Saúde Comunitária",
+                imagem: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "Interior do Nordeste",
+                beneficiarios: "5.000+ pessoas",
+                consultas: "3.200+ consultas",
+                inicio: "2021",
+                historia: "Durante a pandemia em 2021, a enfermeira Ana Paula nos alertou: 'As comunidades rurais estão abandonadas. Doenças simples se tornam graves pela falta de acesso'. Começamos com uma unidade móvel atendendo casos urgentes.",
+                metas: {
+                    curto: ["Ampliar para 30 comunidades", "Incluir atendimento odontológico"],
+                    medio: ["Implantar 5 postos de saúde fixos em parceria com prefeituras"],
+                    longo: ["Reduzir em 60% as doenças evitáveis nas comunidades atendidas"]
+                }
+            },
+            5: {
+                titulo: "Energia Solar Comunitária",
+                imagem: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "Semiárido",
+                beneficiarios: "1.500+ famílias",
+                sistemas: "45 sistemas instalados",
+                inicio: "2022",
+                historia: "Em 2022, Dona Maria, 70 anos, nos contou: 'Vivo há 20 anos sem luz elétrica. À noite, é vela ou lampião'. A falta de energia limitava estudos, trabalho e até conservação de alimentos e medicamentos.",
+                metas: {
+                    curto: ["Instalar 20 novos sistemas", "Capacitar técnicos locais"],
+                    medio: ["Criar micro-usinas solares para geração de renda"],
+                    longo: ["Levar energia limpa para 100% das comunidades isoladas da região"]
+                }
+            },
+            6: {
+                titulo: "Cooperação Norte-Sul",
+                imagem: "https://images.unsplash.com/photo-1527838832700-5059252407fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "África e América Latina",
+                beneficiarios: "Planejado: 10.000+ pessoas",
+                paises: "5 países",
+                inicio: "Dezembro 2025",
+                historia: "Após 16 anos de experiência consolidada no Brasil, em 2025 fomos contactados por uma coalizão de ONGs da África e América Latina que demonstraram interesse em nossas metodologias comprovadas. A diretora executiva, Dra. Silva, declarou: 'Temos o know-how, eles têm a necessidade. É hora de compartilhar nosso aprendizado em escala global'.",
+                metas: {
+                    curto: ["Estabelecer operações em 3 países", "Capacitar 50 profissionais locais"],
+                    medio: ["Beneficiar diretamente 500 pessoas", "Desenvolver 3 modelos adaptados de projetos"],
+                    longo: ["Expandir para 10 países", "Criar rede de cooperação sul-sul"]
+                }
+            },
+            7: {
+                titulo: "Formação Profissional",
+                imagem: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "Todo Brasil",
+                beneficiarios: "4.000+ alunos",
+                cursos: "12 cursos técnicos",
+                inicio: "2020",
+                historia: "Durante a crise econômica de 2020, identificamos que muitos jovens qualificados estavam desempregados, enquanto empresas não encontravam mão de obra especializada. Criamos pontes entre educação e mercado.",
+                metas: {
+                    curto: ["Lançar 3 novos cursos em áreas de alta demanda"],
+                    medio: ["Atingir 10.000 alunos", "Criar programa de incubação de negócios"],
+                    longo: ["Estabelecer centro de excelência em formação profissional"]
+                }
+            },
+            8: {
+                titulo: "Inovação no Campo",
+                imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80",
+                localizacao: "Zonas Rurais",
+                beneficiarios: "600+ produtores",
+                tecnologias: "8 tecnologias implementadas",
+                inicio: "2023",
+                historia: "Em 2023, o jovem agricultor Rafael nos mostrou como usava um aplicativo simples para monitorar sua plantação: 'Se tivesse tecnologia melhor, poderia produzir muito mais'. Percebemos o potencial da tecnologia para revolucionar a agricultura familiar.",
+                metas: {
+                    curto: ["Implementar 5 novas tecnologias", "Expandir para 1.000 produtores"],
+                    medio: ["Criar central de monitoramento agrícola regional"],
+                    longo: ["Transformar a agricultura familiar através da tecnologia 4.0"]
+                }
+            }
+        };
+
+        // Modal para detalhes dos projetos
+        const modal = document.getElementById('modal-projeto');
+        const modalTitulo = document.getElementById('modal-titulo');
+        const modalCorpo = document.getElementById('modal-corpo');
+        const closeModal = document.querySelector('.close-modal');
+
+        document.querySelectorAll('.ver-detalhes').forEach(button => {
+            button.addEventListener('click', function() {
+                const projetoId = this.getAttribute('data-projeto');
+                const projeto = projetos[projetoId];
+                
+                modalTitulo.textContent = projeto.titulo;
+                
+                let html = `
+                    <div class="projeto-detalhes">
+                        <div class="projeto-imagem-detalhe">
+                            <img src="${projeto.imagem}" alt="${projeto.titulo}">
+                        </div>
+                        <div class="projeto-info">
+                            <h3>${projeto.titulo}</h3>
+                            <p>Programa de desenvolvimento comunitário focado em ${projeto.titulo.toLowerCase()}.</p>
+                            <div class="projeto-meta-detalhes">
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>${projeto.localizacao}</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>${projeto.beneficiarios}</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Desde ${projeto.inicio}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="projeto-historia">
+                        <h4>História do Projeto</h4>
+                        <p>${projeto.historia}</p>
+                    </div>
+                    
+                    <div class="projeto-metas">
+                        <h4>Metas e Objetivos</h4>
+                        <div class="projeto-metas-grid">
+                            <div class="meta-card">
+                                <h5>Curto Prazo (1 ano)</h5>
+                                <ul>
+                                    ${projeto.metas.curto.map(meta => `<li>${meta}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="meta-card">
+                                <h5>Médio Prazo (3 anos)</h5>
+                                <ul>
+                                    ${projeto.metas.medio.map(meta => `<li>${meta}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="meta-card">
+                                <h5>Longo Prazo (5 anos)</h5>
+                                <ul>
+                                    ${projeto.metas.longo.map(meta => `<li>${meta}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="doacoes.html" class="btn">Apoiar este Projeto</a>
+                        <a href="voluntariado.html" class="btn btn-outline" style="margin-left: 15px;">Trabalhar como Voluntário</a>
+                    </div>
+                `;
+                
+                modalCorpo.innerHTML = html;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Fechar modal
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Fechar modal clicando fora
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
